@@ -19,5 +19,7 @@
             "email": "Julien.morel76350@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "symfony/dotenv": "^5.2"
+    }
 }
