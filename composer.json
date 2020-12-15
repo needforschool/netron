@@ -1,0 +1,23 @@
+{
+    "name": "nfactoryschool/netron",
+    "description": "Netron est un projet dans le cadre d'une formation NFactory School qui consiste \u0000 d\u0000velopper un site vitrine repr\u0000sentant une entreprise sp\u0000cialis\u0000e dans l\u0000analyse r\u0000seau.",
+    "authors": [
+        {
+            "name": "Antoine Kingue",
+            "email": "contact@antoinek.fr"
+        },
+        {
+            "name": "Amirouche Kais",
+            "email": "kais.amirouche@gmail.com"
+        },
+        {
+            "name": "Oummoul Koulsouwi",
+            "email": "Oummy20180@gmail.com"
+        },
+        {
+            "name": "Julien Morel",
+            "email": "Julien.morel76350@gmail.com"
+        }
+    ],
+    "require": {}
+}

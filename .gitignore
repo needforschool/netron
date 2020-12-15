@@ -1,5 +1,6 @@
 .env
 .vscode
 .DS_Store
-tests/
 composer.phar
+/tests/
+/vendor/
