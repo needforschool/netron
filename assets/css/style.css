@@ -89,7 +89,9 @@ a:hover {
     color: var(--white);
     padding: 6px 10px 6px 16px;
     border-radius: 50px;
-    display: inline-table;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
 }
 
 .btn:hover {
