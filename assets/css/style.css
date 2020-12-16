@@ -3,49 +3,356 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
 }
+
 body {
-	line-height: 1;
+    line-height: 1;
 }
+
 ol, ul {
-	list-style: none;
+    list-style: none;
 }
+
 blockquote, q {
-	quotes: none;
+    quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none;
 }
+
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
+
+/* main */
+
+:root {
+    --white: #fff;
+    --black: #000;
+    --orange: #ce8d14;
+    --blue-primary: #0a2540;
+    --regular: 400;
+    --semi-bold: 500;
+    --bold: 700;
+    --columnCountMax: 4;
+}
+
+body {
+    background-color: var(--white);
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: var(--regular);
+    color: var(---black);
+    height: 100%;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: var(--semi-bold);
+    transition: all .2s;
+}
+
+a:hover {
+    opacity: .6;
+}
+
+/* container */
+
+.container {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1068px;
+}
+
+/* btn */
+
+.btn {
+    background-color: var(--black);
+    color: var(--white);
+    padding: 6px 10px 6px 16px;
+    border-radius: 50px;
+    display: inline-table;
+}
+
+.btn:hover {
+    opacity: .6;
+}
+
+.btn.btn-white {
+    color: var(--white);
+    background-color: rgba(255, 255, 255, .2);
+}
+
+.btn.btn-white:hover {
+    opacity: initial;
+    background-color: rgba(255, 255, 255, .4);
+}
+
+.btn.btn-transparent {
+    color: var(--blue-primary);
+    background-color: transparent;
+}
+
+
+.btn.btn-blue-primary {
+    color: var(--white);
+    background-color: var(--blue-primary);
+}
+
+.btn.btn-blue-primary:hover {
+    opacity: .6;
+}
+
+
+.btn .btn-arrow {
+    --arrowSpacing: ;
+    --arrowHoverTransition: 150ms cubic-bezier(0.215, 0.61, 0.355, 1);
+    --arrowHoverOffset: translateX(3px);
+    position: relative;
+    top: 1px;
+    margin-left: 8px;
+    stroke-width: 2px;
+    fill: none;
+    stroke: currentColor;
+}
+
+.btn .btn-arrow .btn-arrow-line {
+    opacity: 0;
+    transition: .2s;
+}
+
+.btn:hover .btn-arrow .btn-arrow-line {
+    opacity: 1;
+}
+
+.btn .btn-arrow .btn-arrow-tip {
+    transition: .2s;
+}
+
+.btn:hover .btn-arrow .btn-arrow-tip {
+    transform: translateX(3px);
+}
+
+/* grid */
+
+.grid-wrapper {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: -20;
+}
+
+.grid-wrapper .grid {
+    position: relative;
+    display: grid;
+    grid: 1fr/repeat(var(--columnCountMax), 1fr);
+    height: 100%;
+}
+
+.grid-wrapper .grid .grid-line {
+    width: 1px;
+    background: linear-gradient(180deg,rgba(66,71,112,0.09),rgba(66,71,112,0.09) 50%,transparent 0,transparent);
+    background-size: 1px 8px;
+}
+
+.grid-wrapper .grid .grid-line:first-of-type, .grid-wrapper .grid .grid-line:last-of-type {
+    background: rgba(66, 71, 112, 0.06);
+}
+.grid-wrapper .grid .grid-line:last-of-type {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+}
+
+/* header */
+
+#header {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* header > navbar */
+
+#header .navbar {
+    height: 68px;
+    display: flex;
+}
+
+#header .navbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#header .navbar .nav-logo {
+    max-height: 25px;
+    width: auto;
+}
+
+#header .navbar .nav {
+    display: flex;
+}
+
+#header .navbar .nav .nav-item {
+    padding: 0 20px;
+}
+
+#header .navbar .nav .nav-item .nav-link {
+    font-weight: var(--bold);
+    color: var(--white);
+}
+
+/* header > background-rainbow */
+
+#header .background-rainbow {
+    z-index: -10;
+    height: 600px;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: -340px;
+    bottom: 0;
+    position: absolute;
+    background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+    background-size: 1800% 1800%;
+    -webkit-animation: rainbow 18s ease infinite;
+    -z-animation: rainbow 18s ease infinite;
+    -o-animation: rainbow 18s ease infinite;
+    animation: rainbow 18s ease infinite;
+    transform: skeWy(-12deg);
+}
+/*     --gradientColorZero: #a960ee;
+    --gradientColorOne: #ff333d;
+    --gradientColorTwo: #90e0ff;
+    --gradientColorThree: #ffcb57; */
+
+/* header > layout */
+
+#header .layout {
+    display: flex;
+}
+
+#header .layout .layout-text {
+    flex: 1;
+    margin-top: 150px;
+    color: var(--blue-primary);
+}
+
+#header .layout .layout-text .layout-text-title {
+    font-size: 50px;
+    font-weight: var(--bold);
+    letter-spacing: .2px;
+}
+
+#header .layout .layout-text .layout-text-desc {
+    font-size: 16px;
+    margin-top: 25px;
+    line-height: 1.6;
+    
+}
+
+#header .layout .layout-text .layout-text-btn {
+    margin-top: 50px;
+    display: flex;
+}
+
+#header .layout .layout-mockup {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+#header .layout .layout-mockup .layout-mockup-img {
+    max-width: 100%;
+    height: auto;
+    animation: float 6s ease-in-out infinite;
+}
+
+@media only screen and (max-width: 1098px) {
+    #header .navbar,#header .layout .layout-text {
+        padding: 0 15px;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    :root {
+        --columnCountMax: 2;
+    }
+    .btn .btn-arrow {
+        display: none;
+    }
+    #header .navbar .nav {
+        display: none;
+    }
+    #header .navbar .btn.btn-white {
+        display: none;
+    }
+    #header .layout {
+        flex-direction: column;
+    }
+    #header .layout .layout-text .layout-text-title {
+        text-align: center;
+        font-size: 30px;
+    }
+    #header .layout .layout-text .layout-text-desc {
+        text-align: center;
+    }
+    #header .layout .layout-text .layout-text-btn {
+        justify-content: center;
+    }
+}
+
+/* animations */
+
+@keyframes rainbow {
+    0% {
+        background-position: 0% 82%
+    }
+    50% {
+        background-position: 100% 19%
+    }
+    100% {
+        background-position: 0% 82%
+    }
+}
+
+@keyframes float {
+    0% {
+        -webkit-transform: translatey(0px);
+        transform: translatey(0px);
+    }
+    50% {
+        -webkit-transform: translatey(-10px);
+        transform: translatey(-10px);
+    }
+    100% {
+        -webkit-transform: translatey(0px);
+        transform: translatey(0px);
+    }
+}
+
+/*
 :root{
 --white: #EDEDED;
 --gray: #BFC0C0;
@@ -62,7 +369,6 @@ table {
 
 
 body {
-  /* background: var(--light); */
   background: linear-gradient(to left, #333, #333 50%, #eee 75%, #333 75%);
 }
 
@@ -203,7 +509,6 @@ body {
   margin-top: 10px;
 }
 
-/*text styling*/
 h1 {
   font-family: var(--big);
   color: var(--white);
@@ -257,5 +562,4 @@ p {
     background: var(--gray);
     transition: all .4s ease-out; 
   }
-
-
+*/
