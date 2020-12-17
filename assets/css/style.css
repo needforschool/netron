@@ -113,7 +113,6 @@ a:hover {
     background-color: transparent;
 }
 
-
 .btn.btn-blue-primary {
     color: var(--white);
     background-color: var(--blue-primary);
@@ -122,7 +121,6 @@ a:hover {
 .btn.btn-blue-primary:hover {
     opacity: .6;
 }
-
 
 .btn .btn-arrow {
     --arrowSpacing: ;
@@ -171,13 +169,14 @@ a:hover {
 
 .grid-wrapper .grid .grid-line {
     width: 1px;
-    background: linear-gradient(180deg,rgba(66,71,112,0.09),rgba(66,71,112,0.09) 50%,transparent 0,transparent);
+    background: linear-gradient(180deg, rgba(66, 71, 112, 0.09), rgba(66, 71, 112, 0.09) 50%, transparent 0, transparent);
     background-size: 1px 8px;
 }
 
 .grid-wrapper .grid .grid-line:first-of-type, .grid-wrapper .grid .grid-line:last-of-type {
     background: rgba(66, 71, 112, 0.06);
 }
+
 .grid-wrapper .grid .grid-line:last-of-type {
     position: absolute;
     top: 0;
@@ -221,10 +220,15 @@ a:hover {
 
 #header .navbar .nav .nav-item .nav-link {
     font-weight: var(--bold);
-    color: var(--white);
+    color: var(--blue-primary);
 }
 
-/* header > background-rainbow */
+/* layout */
+
+#layout {
+    display: flex;
+    flex-direction: column;
+}
 
 #layout .background-rainbow {
     z-index: -10;
@@ -243,12 +247,6 @@ a:hover {
     animation: rainbow 18s ease infinite;
     transform: skeWy(-12deg);
 }
-/*     --gradientColorZero: #a960ee;
-    --gradientColorOne: #ff333d;
-    --gradientColorTwo: #90e0ff;
-    --gradientColorThree: #ffcb57; */
-
-/* header > layout */
 
 #layout .layout-wrapper {
     display: flex;
@@ -270,7 +268,6 @@ a:hover {
     font-size: 16px;
     margin-top: 25px;
     line-height: 1.6;
-    
 }
 
 #layout .layout-wrapper .layout-text .layout-text-btn {
@@ -291,8 +288,27 @@ a:hover {
     animation: float 6s ease-in-out infinite;
 }
 
+#layout .layout-partners {
+    padding: 60px 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#layout .layout-partners .layout-partners-link {
+    width: 100%;
+    max-width: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+#layout .layout-partners .layout-partners-link .layout-partners-img {
+    height: 40px;
+    width: auto;
+}
+
 @media only screen and (max-width: 1098px) {
-    #header .navbar,#layout .layout-wrapper .layout-text {
+    #header .navbar, #layout .layout-wrapper .layout-text {
         padding: 0 15px;
     }
 }
@@ -322,6 +338,14 @@ a:hover {
     }
     #layout .layout-wrapper .layout-text .layout-text-btn {
         justify-content: center;
+    }
+    #layout .layout-partners {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #layout .layout-partners .layout-partners-link {
+        margin: 10px 0;
     }
 }
 
