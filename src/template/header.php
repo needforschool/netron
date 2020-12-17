@@ -12,10 +12,10 @@
 </head>
 
 <body>
-    <?php if ($title != 'Accueil') : ?>
+    <?php if ($title == 'Accueil') : ?>
         <style>
             #header .navbar .nav .nav-item .nav-link {
-                color: var(--blue-primary) !important
+                color: var(--white);
             }
         </style>
     <?php endif; ?>
@@ -31,7 +31,7 @@
     <header id="header">
         <nav class="navbar">
             <div class="container">
-                <a href="./"><img class="nav-logo" src="<?= ($title != 'Accueil') ? './assets/img/logo/logo-blue-bg-none.png' : './assets/img/logo/logo-white-bg-none.png' ?>" alt="Logo Netron"></a>
+                <a href="./"><img class="nav-logo" src="<?= ($title == 'Accueil') ? './assets/img/logo/logo-white-bg-none.png' : './assets/img/logo/logo-blue-bg-none.png' ?>" alt="Logo Netron"></a>
                 <ul class="nav">
                     <li class="nav-item"><a class="nav-link" href="./about.php">Qui sommes nous</a></li>
                     <li class="nav-item"><a class="nav-link" href="./contact.php">Contact</a></li>
