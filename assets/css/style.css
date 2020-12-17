@@ -226,7 +226,7 @@ a:hover {
 
 /* header > background-rainbow */
 
-#header .background-rainbow {
+#layout .background-rainbow {
     z-index: -10;
     height: 600px;
     width: 100%;
@@ -250,49 +250,49 @@ a:hover {
 
 /* header > layout */
 
-#header .layout {
+#layout .layout-wrapper {
     display: flex;
 }
 
-#header .layout .layout-text {
+#layout .layout-wrapper .layout-text {
     flex: 1;
     margin-top: 150px;
     color: var(--blue-primary);
 }
 
-#header .layout .layout-text .layout-text-title {
+#layout .layout-wrapper .layout-text .layout-text-title {
     font-size: 50px;
     font-weight: var(--bold);
     letter-spacing: .2px;
 }
 
-#header .layout .layout-text .layout-text-desc {
+#layout .layout-wrapper .layout-text .layout-text-desc {
     font-size: 16px;
     margin-top: 25px;
     line-height: 1.6;
     
 }
 
-#header .layout .layout-text .layout-text-btn {
+#layout .layout-wrapper .layout-text .layout-text-btn {
     margin-top: 50px;
     display: flex;
 }
 
-#header .layout .layout-mockup {
+#layout .layout-wrapper .layout-mockup {
     position: relative;
     flex: 1;
     display: flex;
     align-items: center;
 }
 
-#header .layout .layout-mockup .layout-mockup-img {
+#layout .layout-wrapper .layout-mockup .layout-mockup-img {
     max-width: 100%;
     height: auto;
     animation: float 6s ease-in-out infinite;
 }
 
 @media only screen and (max-width: 1098px) {
-    #header .navbar,#header .layout .layout-text {
+    #header .navbar,#layout .layout-wrapper .layout-text {
         padding: 0 15px;
     }
 }
@@ -310,17 +310,17 @@ a:hover {
     #header .navbar .btn.btn-white {
         display: none;
     }
-    #header .layout {
+    #layout .layout-wrapper {
         flex-direction: column;
     }
-    #header .layout .layout-text .layout-text-title {
+    #layout .layout-wrapper .layout-text .layout-text-title {
         text-align: center;
         font-size: 30px;
     }
-    #header .layout .layout-text .layout-text-desc {
+    #layout .layout-wrapper .layout-text .layout-text-desc {
         text-align: center;
     }
-    #header .layout .layout-text .layout-text-btn {
+    #layout .layout-wrapper .layout-text .layout-text-btn {
         justify-content: center;
     }
 }
