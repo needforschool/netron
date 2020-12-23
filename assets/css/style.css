@@ -53,6 +53,14 @@ table {
     --semi-bold: 500;
     --bold: 700;
     --columnCountMax: 4;
+    --gradientColorZero: #a960ee;
+    --gradientColorOne: #ff333d;
+    --gradientColorTwo: #90e0ff;
+    --gradientColorThree: #ffcb57;
+    --gradientColorZeroTransparent: rgba(169, 96, 238, 0);
+    --gradientColorOneTransparent: rgba(255, 51, 61, 0);
+    --gradientColorTwoTransparent: rgba(144, 224, 255, 0);
+    --gradientColorThreeTransparent: rgba(255, 203, 87, 0);
 }
 
 body {
@@ -203,7 +211,7 @@ a:hover {
     top: -340px;
     bottom: 0;
     position: absolute;
-    background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+    background: radial-gradient(var(--gradientColorThree) 23%, var(--gradientColorThreeTransparent) 67% 100%) 385px -24px, radial-gradient(var(--gradientColorOne) 0, var(--gradientColorOneTransparent) 60% 100%) -940px 290px, radial-gradient(var(--gradientColorTwo) 10%, var(--gradientColorTwoTransparent) 60% 100%) -120px 250px, radial-gradient(var(--gradientColorOne) 40%, var(--gradientColorOneTransparent) 57% 100%) 495px -44px, radial-gradient(var(--gradientColorZero) 30%, var(--gradientColorZeroTransparent) 67% 100%) 122px -120px, radial-gradient(var(--gradientColorZero) 10%, var(--gradientColorZeroTransparent) 60% 100%) -420px 120px, radial-gradient(var(--gradientColorTwo) 15%, var(--gradientColorTwoTransparent) 50% 100%) -620px 0, radial-gradient(var(--gradientColorTwo) 25%, var(--gradientColorTwoTransparent) 50% 100%) 520px -250px, var(--gradientColorZero);
     background-size: 1800% 1800%;
     -webkit-animation: rainbow 18s ease infinite;
     -z-animation: rainbow 18s ease infinite;
@@ -252,6 +260,7 @@ a:hover {
 #header .navbar {
     height: 68px;
     display: flex;
+    position: relative;
 }
 
 #header .navbar .container {
@@ -276,6 +285,74 @@ a:hover {
 #header .navbar .nav .nav-item .nav-link {
     font-weight: var(--bold);
     color: var(--blue-primary);
+}
+
+#header .navbar .nav-burger {
+    cursor: pointer;
+    display: none;
+    z-index: 15;
+    position: fixed;
+    right: 15px;
+}
+
+#header .navbar .nav-responsive {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--blue-primary);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 50px 0;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-name: fadeOutUp;
+    opacity: 0;
+}
+
+#header .navbar .nav-responsive.active {
+    animation-name: fadeInDown;
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0)
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+}
+
+@keyframes fadeOutUp {
+    0% {
+        opacity: 1
+    }
+    to {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0)
+    }
+}
+
+#header .navbar .nav-responsive .nav-item {
+    margin-top: 20px;
+}
+
+#header .navbar .nav-responsive .nav-item:first-child {
+    margin-top: 0;
+}
+
+#header .navbar .nav-responsive .nav-item .nav-link {
+    font-weight: var(--bold);
+    color: var(--white) !important;
 }
 
 /* layout */
@@ -411,7 +488,6 @@ a:hover {
 #video-preview {
     margin-top: 100px;
     margin-bottom: -100px;
-    /* transform: skeWy(-6deg); */
 }
 
 #video-preview .video-wrapper {
@@ -500,14 +576,23 @@ a:hover {
     :root {
         --columnCountMax: 2;
     }
+    .btn {
+        padding: 6px 16px 6px 16px;
+    }
     .btn .btn-arrow {
         display: none;
     }
     #header .navbar .nav {
         display: none;
     }
-    #header .navbar .btn.btn-white {
+    #header .navbar .nav .nav-item {
         display: none;
+    }
+    #header .navbar .container>.nav-item {
+        display: none;
+    }
+    #header .navbar .nav-burger {
+        display: initial;
     }
     #layout .layout-wrapper, #preview .preview-wrapper {
         flex-direction: column;
@@ -534,6 +619,9 @@ a:hover {
     #preview .preview-wrapper .preview-text .preview-text-desc {
         text-align: justify;
         margin: 15px;
+    }
+    #video-preview {
+        margin-bottom: 0px;
     }
     #video-preview .video-wrapper .video-item {
         max-width: 85%;
