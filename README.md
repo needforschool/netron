@@ -44,14 +44,14 @@ Notes:
 | lastname   	| varchar(100)         	|
 | created_at 	| datetime             	|
 | updated_at 	| datetime             	|
-| role       	| varchar(255)        	|
+| role       	| varchar(20)         	|
 
 **Logs** *(Incomplet)*
 | nr_logs   	|                      	|
 |------------	|----------------------	|
 | id         	| int(11)              	|
 | user_id    	| int(11)              	|
-| send_at       | datetime            	|
+| data        | json                	|
 | created_at 	| datetime             	|
 | updated_at 	| datetime             	|
 
