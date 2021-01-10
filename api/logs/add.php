@@ -7,6 +7,9 @@ $success = false;
 session_start();
 error_reporting(0);
 
+// Check if the user is logged in
+if (!isLogged()) $errors['user'] = 'Vous devez être connnecté avant d\'effectuer cette action.';
+
 $file = file_get_contents('https://floriandoyen.fr/resources/frames.php');
 $json = json_decode($file, true);
 $types = ["date", "version", "headerLength", "service", "identification", "flags", "ttl", "protocol", "headerChecksum", "ip"];
@@ -18,9 +21,6 @@ for ($i = 0; $i < count($json); $i++) {
         if (empty($object[$type])) $errors[$type] = "L'objet $i ne contient pas de $type.";
     }
 }
-
-// Check if the user is logged in
-if (!isLogged()) $errors['user'] = 'Vous devez être connnecté avant d\'effectuer cette action.';
 
 if (count($errors) == 0) {
     insert(

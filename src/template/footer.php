@@ -39,12 +39,12 @@
             <div class="footer-col">
                 <h3 class="footer-title">Entreprise</h3>
                 <ul class="footer-list">
-                    <li class="footer-item"><a class="footer-link" href="#">Qui sommes nous</a></li>
+                    <li class="footer-item"><a class="footer-link" href="./about.php">Qui sommes nous</a></li>
                 </ul>
                 <h3 class="footer-title">Ressources</h3>
                 <ul class="footer-list">
-                    <li class="footer-item"><a class="footer-link" href="#">Mentions Légales</a></li>
-                    <li class="footer-item"><a class="footer-link" href="#">Contact</a></li>
+                    <li class="footer-item"><a class="footer-link" href="./legal.php">Mentions Légales</a></li>
+                    <li class="footer-item"><a class="footer-link" href="./contact.php">Contact</a></li>
                 </ul>
             </div>
         </div>

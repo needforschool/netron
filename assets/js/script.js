@@ -7,8 +7,13 @@ const init = () => {
   initNavbarResponsive();
   initModal();
   initLocalization();
-  initFormRegister();
-  initFormLogin();
+  initForm('.form-contact');
+  initForm('.form-login', (response) => {
+    if (response.success) window.location.href = './dashboard';
+  })
+  initForm('.form-register', (response) => {
+    if (response.success) window.location.href = './dashboard';
+  })
 }
 
 const initSwiper = () => {
@@ -54,17 +59,15 @@ const initModal = () => {
     }
   });
 
-  $('header [role="btn-dashboard"]').click(() => {
+  $('[role="btn-dashboard"]').click(() => {
     window.location.href = './dashboard'
   });
 
-  header.querySelectorAll('[role="btn-modal-login"]').forEach(element => {
-    element.addEventListener('click', (e) => {
-      e.preventDefault();
-      navResponsive.classList.remove('active');
-      modalsWrapper.classList.toggle('active');
-    });
-  });
+  $('[role="btn-modal-login"]').click((e) => {
+    e.preventDefault();
+    navResponsive.classList.remove('active');
+    modalsWrapper.classList.toggle('active');
+  })
 
   btnRegister.addEventListener('click', (e) => {
     e.preventDefault();
@@ -93,8 +96,8 @@ const initLocalization = () => {
   });
 }
 
-const initFormRegister = () => {
-  const form = $('.form-register');
+const initForm = (formClass, successHandler = () => { }) => {
+  const form = $(formClass);
   form.on('submit', (e) => {
     e.preventDefault();
     $.ajax({
@@ -103,31 +106,30 @@ const initFormRegister = () => {
       data: form.serialize(),
       dataType: 'json',
       success: (response) => {
-        console.log(response);
-        if(response.success) window.location.href = './dashboard';
+        successHandler(response);
+        if (response.success) {
+          if (!$('.btn[type="submit"]').hasClass('btn-success')) {
+            $('.btn[type="submit"]').toggleClass('btn-success');
+            setTimeout(() => {
+              $('.btn[type="submit"]').toggleClass('btn-success');
+            }, 2000)
+          }
+        } else {
+          if (!$('.btn[type="submit"]').hasClass('btn-error')) {
+            $('.btn[type="submit"]').toggleClass('btn-error');
+            setTimeout(() => {
+              $('.btn[type="submit"]').toggleClass('btn-error');
+            }, 2000)
+          }
+        }
       },
       error: () => {
-        console.log('Request failed');
-      }
-    })
-  });
-}
-
-const initFormLogin = () => {
-  const form = $('.form-login');
-  form.on('submit', (e) => {
-    e.preventDefault();
-    $.ajax({
-      type: form.attr('method'),
-      url: form.attr('action'),
-      data: form.serialize(),
-      dataType: 'json',
-      success: (response) => {
-        console.log(response);
-        if(response.success) window.location.href = './dashboard';
-      },
-      error: () => {
-        console.log('Request failed');
+        if (!$('.btn[type="submit"]').hasClass('btn-error')) {
+          $('.btn[type="submit"]').toggleClass('btn-error');
+          setTimeout(() => {
+            $('.btn[type="submit"]').toggleClass('btn-error');
+          }, 2000)
+        }
       }
     })
   });

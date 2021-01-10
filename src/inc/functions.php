@@ -113,18 +113,6 @@ function isLogged()
 }
 
 /**
- * Déconnecte l'utilisateur actuel.
- * 
- * @return void
- */
-function logout()
-{
-    session_start();
-    $_SESSION['netron']['user'] = [];
-    header('Location: ./');
-}
-
-/**
  * SQL
  */
 

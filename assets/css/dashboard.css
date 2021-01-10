@@ -1,0 +1,148 @@
+/* main */
+
+b {
+    font-weight: var(--bold);
+}
+
+.container {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1468px;
+}
+
+.background-blue-primary {
+    transform: skeWy(0);
+}
+
+/* header */
+
+#header .navbar .nav .nav-item .nav-link {
+    color: var(--white);
+}
+
+/* dashboard */
+
+#dashboard {
+    display: flex;
+    flex-direction: column;
+}
+
+#dashboard .cards-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#dashboard .cards-container .cards-row {
+    display: flex;
+}
+
+#dashboard .cards-container .cards-row .cards-item:first-child {
+    margin-left: 0;
+}
+
+#dashboard .cards-container .cards-row .cards-item:last-child {
+    margin-right: 0;
+}
+
+#dashboard .cards-container .cards-item {
+    display: flex;
+    flex: 1;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, .05);
+    margin: 5px;
+    border-radius: 5px;
+}
+
+#dashboard .cards-container .cards-item.cards-charts {
+    flex: 3;
+}
+
+#dashboard .cards-container .cards-item.cards-profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#dashboard .cards-container .cards-profile .form-profile {
+    display: flex;
+    flex-direction: column;
+}
+
+#dashboard .cards-container .cards-profile .form-profile input {
+    background: none;
+    outline: none;
+    border: none;
+    width: 100%;
+    padding: 0;
+}
+
+#dashboard .cards-container .cards-profile .form-profile .profile-edit-password {
+    margin: 10px 0;
+}
+
+#dashboard .cards-container .cards-profile .form-profile .btn {
+    margin-left: auto;
+}
+
+#dashboard .cards-container .cards-item.cards-logs {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+#dashboard .cards-container .cards-logs #table-logs {
+    width: 100%;
+    text-align: center;
+}
+
+#dashboard .cards-container .cards-logs #table-logs th {
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-collapse: collapse;
+    text-align: center;
+    background-color: rgba(255, 255, 255, .05);
+    vertical-align: middle;
+    padding: 5px;
+}
+
+#dashboard .cards-container .cards-logs #table-logs tr:first-child th {
+    border-top: none;
+}
+
+#dashboard .cards-container .cards-logs #table-logs tr th:first-child {
+    border-left: 0;
+}
+
+#dashboard .cards-container .cards-logs #table-logs tr th:last-child {
+    border-right: 0;
+}
+
+#dashboard .cards-container .cards-logs #table-logs td {
+    border-right: 1px solid rgba(255, 255, 255, .25);
+    border-left: 1px solid rgba(255, 255, 255, .25);
+    border-collapse: collapse;
+    text-align: center;
+    vertical-align: middle;
+    padding: 5px;
+}
+
+#dashboard .cards-container .cards-logs #table-logs tr td:first-child {
+    border-left: 0;
+}
+
+#dashboard .cards-container .cards-logs #table-logs tr td:last-child {
+    border-right: 0;
+}
+
+@media only screen and (max-width: 750px) {
+    #dashboard .cards-container {
+        padding: 0 15px;
+    }
+    #dashboard .cards-container .cards-row {
+        flex-direction: column;
+    }
+    #dashboard .cards-container .cards-item {
+        margin: 5px 0;
+    }
+}

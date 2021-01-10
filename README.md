@@ -55,6 +55,17 @@ Notes:
 | created_at 	| datetime             	|
 | updated_at 	| datetime             	|
 
+**Contact**
+| nr_contact 	|              	|
+|------------	|--------------	|
+| id         	| int(11)      	|
+| mail       	| varchar(160)  |
+| firstname  	| varchar(100) 	|
+| lastname   	| varchar(100) 	|
+| subject    	| varchar(255) 	|
+| message    	| text         	|
+| created_at 	| datetime     	|
+
 ## Credits
 Ce projet contient les éléments open source suivants:
 * [Google Fonts](https://fonts.google.com)

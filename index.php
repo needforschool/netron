@@ -1,8 +1,7 @@
 <?php
-require('src/inc/functions.php');
-
+require('./src/inc/functions.php');
 $title = 'Accueil';
-include('src/template/header.php');
+include('./src/template/header.php');
 ?>
 <section id="layout">
     <div class="background-rainbow"></div>
@@ -12,15 +11,15 @@ include('src/template/header.php');
             <p class="layout-text-desc">Des millions d'entreprises de toutes tailles, des start-up aux grandes
                 entreprises, utilisent nos plateformes d’analyse réseau.</p>
             <div class="layout-text-btn">
-                <a class="btn btn-blue-primary" href="#">Démarrer dès maintenant
+                <button class="btn btn-blue-primary" <?= (isLogged()) ? 'role="btn-dashboard"' : 'role="btn-modal-login"' ?>>Démarrer dès maintenant
                     <svg class="btn-arrow" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
                         <g fill-rule="evenodd">
                             <path class="btn-arrow-line" d="M0 5h7"></path>
                             <path class="btn-arrow-tip" d="M1 1l4 4-4 4"></path>
                         </g>
                     </svg>
-                </a>
-                <a class="btn btn-transparent" href="#">Contacter notre équipe
+                </button>
+                <a class="btn btn-transparent" href="./contact.php">Contacter notre équipe
                     <svg class="btn-arrow" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
                         <g fill-rule="evenodd">
                             <path class="btn-arrow-line" d="M0 5h7"></path>
@@ -61,7 +60,7 @@ include('src/template/header.php');
                     nihil natus, fuga distinctio velit harum ducimus sunt placeat accusantium facere dicta quas
                     quaerat in et. Dolorem!</p>
                 <div class="preview-text-btn">
-                    <a class="btn btn-blue-secondary" href="#">En savoir plus
+                    <a class="btn btn-blue-secondary" href="./about.php">En savoir plus
                         <svg class="btn-arrow" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
                             <g fill-rule="evenodd">
                                 <path class="btn-arrow-line" d="M0 5h7"></path>
@@ -97,14 +96,14 @@ include('src/template/header.php');
             <source src="assets/media/test-video.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <a class="btn btn-blue-primary" href="#">Commencer l'experience maintenant
+        <button class="btn btn-blue-primary" <?= (isLogged()) ? 'role="btn-dashboard"' : 'role="btn-modal-login"' ?>>Commencer l'experience maintenant
             <svg class="btn-arrow" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
                 <g fill-rule="evenodd">
                     <path class="btn-arrow-line" d="M0 5h7"></path>
                     <path class="btn-arrow-tip" d="M1 1l4 4-4 4"></path>
                 </g>
             </svg>
-        </a>
+        </button>
     </div>
 </section>
-<?php include('src/template/footer.php');
+<?php include('./src/template/footer.php');

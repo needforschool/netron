@@ -5,13 +5,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
     <title><?= $title ?> - Netron</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+
 </head>
 
 <body>
@@ -19,6 +22,16 @@
         <style>
             #header .navbar .nav .nav-item .nav-link {
                 color: var(--white);
+            }
+
+            #header .navbar .btn.btn-blue-primary {
+                color: var(--white);
+                background-color: rgba(255, 255, 255, .2);
+            }
+
+            #header .navbar .btn.btn-blue-primary:hover {
+                opacity: initial;
+                background-color: rgba(255, 255, 255, .4);
             }
         </style>
     <?php endif; ?>
@@ -36,10 +49,10 @@
             <div class="container">
                 <a href="./"><img class="nav-logo" src="<?= ($title == 'Accueil') ? './assets/img/logo/logo-white-bg-none.png' : './assets/img/logo/logo-blue-bg-none.png' ?>" alt="Logo Netron"></a>
                 <ul class="nav">
-                    <li class="nav-item"><a class="nav-link" href="#">Qui sommes nous</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./about.php">Qui sommes nous</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./contact.php">Contact</a></li>
                 </ul>
-                <button <?= (isLogged()) ? 'role="btn-dashboard"' : 'role="btn-modal-login"' ?> class="nav-item btn btn-white"><?= (isLogged()) ? 'Tableau de bord' : 'Se connecter' ?>
+                <button <?= (isLogged()) ? 'role="btn-dashboard"' : 'role="btn-modal-login"' ?> class="nav-item btn btn-blue-primary"><?= (isLogged()) ? 'Tableau de bord' : 'Se connecter' ?>
                     <svg class="btn-arrow" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
                         <g fill-rule="evenodd">
                             <path class="btn-arrow-line" d="M0 5h7"></path>
@@ -51,9 +64,9 @@
                     <img class="nav-burger-img" src="./assets/img/menu-line.svg" alt="Burger">
                 </div>
                 <ul class="nav-responsive">
-                    <li class="nav-item"><a class="nav-link" href="#">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Qui sommes nous</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./about.php">Qui sommes nous</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./contact.php">Contact</a></li>
                     <button <?= (isLogged()) ? 'role="btn-dashboard"' : 'role="btn-modal-login"' ?> class="nav-item btn btn-white" href="#"><?= (isLogged()) ? 'Tableau de bord' : 'Se connecter' ?>
                         <svg class="btn-arrow" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
                             <g fill-rule="evenodd">
