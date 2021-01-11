@@ -19,8 +19,6 @@ const init = () => {
 
                 if (!protocols.filter(item => (item.protocol === trame.protocol.name)).length > 0) protocols.push({ protocol: trame.protocol.name, color: `${randomInt(0, 255) + "," + randomInt(0, 255) + "," + randomInt(0, 255)}` });
 
-
-
                 initTable(trame);
             });
 
@@ -53,12 +51,7 @@ const sortStringDate = (array) => {
 }
 
 const formatIntDouble = (int) => {
-    return (int < 10) ? "0" + int : int;
-}
-
-const convertBlock = (block) => {
-    block[0];
-    block[1];
+    return (int < 10 && int >= 0) ? "0" + int : int;
 }
 
 const hexToIpv4 = (ip) => {

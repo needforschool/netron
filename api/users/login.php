@@ -18,7 +18,6 @@ $user = select($pdo, 'nr_users', '*', 'mail', $mail);
 
 if (empty($user)) $errors['mail'] = 'Cette email n\'est pas enregistrée pensez à vous inscrire.';
 
-
 if (!password_verify($password, $user['password'])) $errors['password'] = 'Mot de passe incorrect';
 
 if (count($errors) == 0) {

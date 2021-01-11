@@ -1,6 +1,5 @@
 const header = document.getElementById('header');
 const navResponsive = header.querySelector('.nav-responsive');
-let xhr = new XMLHttpRequest();
 
 const init = () => {
   initSwiper();
@@ -59,7 +58,8 @@ const initModal = () => {
     }
   });
 
-  $('[role="btn-dashboard"]').click(() => {
+  $('[role="btn-dashboard"]').click((e) => {
+    e.preventDefault();
     window.location.href = './dashboard'
   });
 
