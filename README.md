@@ -44,16 +44,27 @@ Notes:
 | lastname   	| varchar(100)         	|
 | created_at 	| datetime             	|
 | updated_at 	| datetime             	|
-| role       	| varchar(255)        	|
+| role       	| varchar(20)         	|
 
 **Logs** *(Incomplet)*
 | nr_logs   	|                      	|
 |------------	|----------------------	|
 | id         	| int(11)              	|
 | user_id    	| int(11)              	|
-| send_at       | datetime            	|
+| data        | json                	|
 | created_at 	| datetime             	|
 | updated_at 	| datetime             	|
+
+**Contact**
+| nr_contact 	|              	|
+|------------	|--------------	|
+| id         	| int(11)      	|
+| mail       	| varchar(160)  |
+| firstname  	| varchar(100) 	|
+| lastname   	| varchar(100) 	|
+| subject    	| varchar(255) 	|
+| message    	| text         	|
+| created_at 	| datetime     	|
 
 ## Credits
 Ce projet contient les éléments open source suivants:

@@ -1,3 +1,12 @@
 <Files ".*">  
   Require all denied
 </Files>
+
+ErrorDocument 401 "<h1>Woowww</h1>"
+ErrorDocument 403 ./error.php?e=403
+ErrorDocument 404 "<head><title>yeay</title></head>"
+ErrorDocument 405 ./error.php?e=405
+ErrorDocument 406 ./error.php?e=406
+ErrorDocument 500 ./error.php?e=500
+ErrorDocument 501 ./error.php?e=501
+ErrorDocument 503 ./error.php?e=503

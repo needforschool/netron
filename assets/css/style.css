@@ -45,9 +45,11 @@ table {
 :root {
     --white: #fff;
     --black: #000;
-    --gray: #adbdcc;
+    --grey: #adbdcc;
     --blue-primary: #0a2540;
     --blue-secondary: #00d4ff;
+    --green: #8bff96;
+    --red: #ff6b6b;
     --light: 300;
     --regular: 400;
     --semi-bold: 500;
@@ -65,17 +67,19 @@ table {
 
 body {
     background-color: var(--white);
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    font-weight: var(--regular);
-    color: var(---black);
     height: 100%;
     width: 100%;
 }
 
+body, a, input, button {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: var(--regular);
+    color: var(---black);
+}
+
 a {
     text-decoration: none;
-    color: var(--black);
     font-weight: var(--semi-bold);
     transition: all .2s;
 }
@@ -100,8 +104,14 @@ a:hover {
     padding: 6px 10px 6px 16px;
     border-radius: 50px;
     display: inline-block;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    font-weight: var(--semi-bold);
     text-align: center;
     cursor: pointer;
+    outline: none;
+    border: none;
+    transition: all .2s;
 }
 
 .btn:hover {
@@ -136,6 +146,14 @@ a:hover {
 .btn.btn-blue-secondary:hover {
     background-color: var(--white);
     opacity: 1;
+}
+
+.btn.btn-success {
+    background-color: var(--green) !important;
+}
+
+.btn.btn-error {
+    background-color: var(--red) !important;
 }
 
 .btn .btn-arrow {
@@ -318,30 +336,6 @@ a:hover {
     animation-name: fadeInDown;
 }
 
-@keyframes fadeInDown {
-    0% {
-        opacity: 0;
-        -webkit-transform: translate3d(0, -100%, 0);
-        transform: translate3d(0, -100%, 0)
-    }
-    to {
-        opacity: 1;
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0)
-    }
-}
-
-@keyframes fadeOutUp {
-    0% {
-        opacity: 1
-    }
-    to {
-        opacity: 0;
-        -webkit-transform: translate3d(0, -100%, 0);
-        transform: translate3d(0, -100%, 0)
-    }
-}
-
 #header .navbar .nav-responsive .nav-item {
     margin-top: 20px;
 }
@@ -353,6 +347,129 @@ a:hover {
 #header .navbar .nav-responsive .nav-item .nav-link {
     font-weight: var(--bold);
     color: var(--white) !important;
+}
+
+/* header > modals */
+
+#header .modal-wrapper {
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s;
+}
+
+#header .modal-wrapper.active {
+    opacity: 1;
+    pointer-events: initial;
+    transition: opacity 0;
+}
+
+#header .modal-wrapper .modal-content {
+    position: relative;
+    max-height: 80%;
+    width: 100%;
+    max-width: 500px;
+    background-color: var(--white);
+    border-radius: 20px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-name: backOutDown;
+    overflow: auto;
+}
+
+#header .modal-wrapper.active .modal-content {
+    animation-name: backInDown;
+}
+
+#header .modal-wrapper .modal-content .modal-close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+#header .modal-wrapper .modal-content .modal-close:hover {
+    opacity: .6;
+}
+
+/* header > modals > login */
+
+#header .modal-wrapper .modal-content .form-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+#header .modal-wrapper .modal-content .form-image {
+    height: 175px;
+    width: auto;
+}
+
+#header .modal-wrapper .modal-content .forgot-password, #header .modal-wrapper .modal-content p {
+    font-size: 12px;
+    font-weight: var(--light);
+    font-style: italic;
+}
+
+#header .modal-wrapper .modal-content .form-register {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+#header .modal-wrapper .modal-content .form-register .inputs-container {
+    flex: 1;
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+#header .modal-wrapper .modal-content .form-register .inputs-container input:first-child {
+    margin-right: 15px;
+}
+
+#header .modal-wrapper .modal-content .btn[type="submit"] {
+    margin-top: 25px;
+}
+
+#header .modal-wrapper .modal-content .btn, #header .modal-wrapper .modal-content .forgot-password, #header .modal-wrapper .modal-content p {
+    margin-top: 10px;
+}
+
+#header .modal-wrapper .modal-content input {
+    width: 100%;
+    border: none;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.2);
+    outline: none;
+    background-color: var(--white);
+    padding: 0;
+    transition: all .2s;
+    margin-top: 20px;
+}
+
+#header .modal-wrapper .modal-content input:focus {
+    border-bottom: solid 1px rgba(0, 0, 0, 0.6);
 }
 
 /* layout */
@@ -454,7 +571,7 @@ a:hover {
 #preview .preview-wrapper .preview-text .preview-text-desc {
     margin-top: 30px;
     font-size: 18px;
-    color: var(--gray);
+    color: var(--grey);
     line-height: 1.5;
 }
 
@@ -502,6 +619,43 @@ a:hover {
 
 #video-preview .video-wrapper .btn {
     margin-top: 30px;
+}
+
+/* contact */
+
+#contact {
+    margin-top: 100px;
+}
+
+#contact .contact-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#contact .contact-container .form-contact {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    align-items: center;
+}
+
+#contact .contact-container .form-contact .inputs-container {
+    display: flex;
+    width: 100%;
+}
+
+#contact .contact-container .form-contact .inputs-container input, #contact .contact-container .form-contact textarea {
+    flex: 1;
+    margin-top: 10px;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    background-color: var(--blue-primary);
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    padding: 6px 16px;
+    color: var(--white);
 }
 
 /* footer */
@@ -594,6 +748,27 @@ a:hover {
     #header .navbar .nav-burger {
         display: initial;
     }
+    #header .modal-wrapper .modal-content {
+        max-height: initial;
+        min-height: 100%;
+        ;
+        height: 100%;
+        max-width: 100%;
+    }
+    #header .modal-wrapper .modal-content input {
+        width: 80%;
+    }
+    #header .modal-wrapper .modal-content .modal-close {
+        font-size: 24px;
+        right: 30px;
+        top: 35px;
+    }
+    #header .modal-wrapper .modal-content .form-register .inputs-container {
+        flex-direction: column;
+    }
+    #header .modal-wrapper .modal-content .form-register .inputs-container input:first-child {
+        margin-right: 0;
+    }
     #layout .layout-wrapper, #preview .preview-wrapper {
         flex-direction: column;
         text-align: center;
@@ -661,6 +836,66 @@ a:hover {
     100% {
         -webkit-transform: translatey(0px);
         transform: translatey(0px);
+    }
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0)
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+}
+
+@keyframes fadeOutUp {
+    0% {
+        opacity: 1
+    }
+    to {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0)
+    }
+}
+
+@keyframes backInDown {
+    0% {
+        -webkit-transform: translateY(-1200px) scale(.7);
+        transform: translateY(-1200px) scale(.7);
+        opacity: .7
+    }
+    80% {
+        -webkit-transform: translateY(0) scale(.7);
+        transform: translateY(0) scale(.7);
+        opacity: .7
+    }
+    to {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1
+    }
+}
+
+@keyframes backOutDown {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1
+    }
+    20% {
+        -webkit-transform: translateY(0) scale(.7);
+        transform: translateY(0) scale(.7);
+        opacity: .7
+    }
+    to {
+        -webkit-transform: translateY(700px) scale(.7);
+        transform: translateY(700px) scale(.7);
+        opacity: .7
     }
 }
 
