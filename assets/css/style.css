@@ -644,10 +644,20 @@ a:hover {
     display: flex;
     width: 100%;
 }
+/* #contact .contact-container .form-contact .inputs-container input:first-child {
+    margin-left: 0;
+
+}
+#contact .contact-container .form-contact .inputs-container input:last-child {
+    margin-right: 0;
+} */
+
+
+
 
 #contact .contact-container .form-contact .inputs-container input, #contact .contact-container .form-contact textarea {
     flex: 1;
-    margin-top: 10px;
+    margin: 10px;
     border: none;
     outline: none;
     border-radius: 12px;
@@ -657,6 +667,12 @@ a:hover {
     padding: 6px 16px;
     color: var(--white);
 }
+#contact .contact-container .form-contact textarea {
+    /* max-width: 50%; */
+    width: 90%;
+    min-height: 200px;
+}
+
 
 /* footer */
 
@@ -724,6 +740,20 @@ a:hover {
     #header .navbar, #layout .layout-wrapper .layout-text {
         padding: 0 15px;
     }
+    #contact .contact-container .form-contact .inputs-container {
+        flex-direction: column;
+        width: 55%;
+    }
+    #contact .contact-container .form-contact textarea {
+        width: 48%;
+        min-height: 180px;
+    }
+    #contact .contact-container .form-contact {
+        width: 90%;
+        flex-direction: column;
+        align-items: center;
+    }
+
 }
 
 @media only screen and (max-width: 750px) {
@@ -808,6 +838,20 @@ a:hover {
         margin-top: 0;
         margin-top: 40px;
     }
+    #contact .contact-container .form-contact .inputs-container {
+        flex-direction: column;
+        width: 105%;
+    }
+    #contact .contact-container .form-contact textarea {
+        width: 90%;
+        min-height: 180px;
+    }
+    #contact .contact-container .form-contact {
+        width: 90%;
+        flex-direction: column;
+        align-items: center;
+    }
+    
 }
 
 /* animations */
@@ -830,8 +874,8 @@ a:hover {
         transform: translatey(0px);
     }
     50% {
-        -webkit-transform: translatey(-10px);
-        transform: translatey(-10px);
+        -webkit-transform: translatey(-100px);
+        transform: translatey(10px);
     }
     100% {
         -webkit-transform: translatey(0px);
