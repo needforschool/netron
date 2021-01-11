@@ -359,17 +359,17 @@ a:hover {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.4);
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    display: flex;
     opacity: 0;
     pointer-events: none;
     transition: opacity 1s;
 }
 
 #header .modal-wrapper.active {
+    display: flex;
     opacity: 1;
     pointer-events: initial;
     transition: opacity 0;
@@ -751,7 +751,6 @@ a:hover {
     #header .modal-wrapper .modal-content {
         max-height: initial;
         min-height: 100%;
-        ;
         height: 100%;
         max-width: 100%;
     }

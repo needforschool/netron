@@ -41,22 +41,24 @@ const initNavbarResponsive = () => {
 }
 
 const initModal = () => {
-  const modalsWrapper = header.querySelector('.modal-wrapper');
-  const modalCloseButton = modalsWrapper.querySelector('.modal-close');
-  const btnRegister = modalsWrapper.querySelector('[role="btn-register"]');
-  const btnLogin = modalsWrapper.querySelector('[role="btn-login"]');
-  const formRegister = modalsWrapper.querySelector('.form-register');
-  const formLogin = modalsWrapper.querySelector('.form-login');
+  const modalsWrapper = $('.modal-wrapper');
+  const modalCloseButton = $('.modal-wrapper .modal-close');
+  const btnRegister = $('.modal-wrapper [role="btn-register"]');
+  const btnLogin = $('.modal-wrapper [role="btn-login"]');
+  const formRegister = $('.modal-wrapper .form-register');
+  const formLogin = $('.modal-wrapper .form-login');
 
-  modalCloseButton.addEventListener('click', () => {
-    modalsWrapper.classList.toggle('active');
-  });
-
-  modalsWrapper.addEventListener('click', (e) => {
-    if (e.target == modalsWrapper) {
-      modalsWrapper.classList.toggle('active');
+  modalCloseButton.click((e) => {
+    if (e.target == document.querySelector('.modal-wrapper')) {
+      modalsWrapper.toggleClass('active');
     }
-  });
+  })
+
+  modalsWrapper.click((e) => {
+    if (e.target == document.querySelector('.modal-wrapper')) {
+      modalsWrapper.toggleClass('active');
+    }
+  })
 
   $('[role="btn-dashboard"]').click((e) => {
     e.preventDefault();
@@ -66,20 +68,20 @@ const initModal = () => {
   $('[role="btn-modal-login"]').click((e) => {
     e.preventDefault();
     navResponsive.classList.remove('active');
-    modalsWrapper.classList.toggle('active');
-  })
+    modalsWrapper.css('display', 'flex').toggleClass('active');
+  });
 
-  btnRegister.addEventListener('click', (e) => {
+  btnRegister.click((e) => {
     e.preventDefault();
     formLogin.style.display = 'none';
     formRegister.style.display = 'flex';
-  })
+  });
 
-  btnLogin.addEventListener('click', (e) => {
+  btnLogin.click((e) => {
     e.preventDefault();
-    formRegister.style.display = 'none';
-    formLogin.style.display = 'flex';
-  })
+    formLogin.style.display = 'none';
+    formRegister.style.display = 'flex';
+  });
 }
 
 const initLocalization = () => {
