@@ -20,10 +20,10 @@ include('src/template/header.php');
 <section id="error">
     <div class="container container-error">
         <div class="error-text">
-            <h1 class="error-txt">Erreur <?= $error ?></h1>
+            <h1 class="error-txt"><?= $error ?></h1>
             <p class="error-txt"><?= $message ?></p>
         </div>
-        <?php if (!empty($_GET['e']) && is_numeric($_GET['e']) && $_GET['e'] == 404) {
+        <?php if ($error == 404) {
              ?>  <div class="error-image">
                     <img class="error-img" src="assets/img/error_404.svg" alt="erreur">
                  </div><?php

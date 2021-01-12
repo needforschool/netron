@@ -666,17 +666,26 @@ a:hover {
 .container-error .error-text{
     display: flex;
     margin-top: 30px;
+    flex-direction: column;
+    align-items: center;
+
 }
 .container-error .error-text .error-txt{
 margin: 5px;
 font-size: 1em;
 text-transform: uppercase;
 text-decoration: var(--bold);
+color: var(--blue-primary);
+}
+.container-error .error-text h1.error-txt {
+ font-size: 75px;
+ font-weight: 900;
 }
 
 .container-error .error-image{
     margin-top: 30px;
     width: 50%;
+    max-width: 400px;
 }
 .container-error .error-image .error-img{
     width: 100%;
