@@ -674,6 +674,44 @@ a:hover {
 }
 
 
+/* error */
+
+#error .error-content {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+}
+
+#error .error-content .error-text {
+    display: flex;
+    margin-top: 30px;
+    flex-direction: column;
+    align-items: center;
+}
+
+#error .error-content .error-text .error-txt {
+    margin: 5px;
+    font-size: 1em;
+    text-transform: uppercase;
+    text-decoration: var(--bold);
+    color: var(--blue-primary);
+}
+
+#error .error-content .error-text h1.error-txt {
+    font-size: 75px;
+    font-weight: 900;
+}
+
+#error .error-content .error-image {
+    margin-top: 30px;
+    width: 50%;
+    max-width: 400px;
+}
+
+#error .error-content .error-image .error-img {
+    width: 100%;
+}
+
 /* footer */
 
 #footer {
