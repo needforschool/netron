@@ -673,7 +673,108 @@ a:hover {
     min-height: 200px;
 }
 
+ #about .container{
+    width:100%;
+ }
+ #about .container-lg h1.common-pagetitle.title{
+    font-weight: 4px;
+    font-size: 50px;
+    margin-top: 50px;
+    line-height: 1.5;
+    letter-spacing: .8px;
+}
+#about .container-lg  p.common-introtext{
+    font-size: 18px;
+    margin: 40px auto;
+    line-height: 1.5;
+    letter-spacing: .8px;
+    width: 50%;
+}
 
+
+
+
+#about .container-lg h1.common-pagetitle, #about .container-lg p.common-introtext {
+    color: var(--blue-primary);
+
+    text-align: center;
+}
+#about .container-lg {
+    position: relative;
+    max-width: 1400px;
+}
+
+ 
+ #about .team{
+    width:90%;
+    margin:0 auto;
+    text-align: center;
+    padding:5% 5%;
+    over-flow:hidden;
+ }
+ #about .team h1{
+    text-align:center;
+    color: #0a2540;
+    font-weight: 4px;
+    font-size: 50px;
+    margin-top: 50px;
+    line-height: 1.5;
+    letter-spacing: .8px;
+ 
+ }
+ #about .card {
+     margin-left: 300px;
+ }
+ #about .team .card{
+    padding-bottom:20px;
+    padding-top:20px;
+    position:relative;
+    min-width:20%;
+    height:500px !important;
+    height:auto;
+    background-color:#fff;
+    display:inline-block;
+    margin:40px 6.5%;
+    box-shadow: 0 0 20px 2px rgba(0,0,0,0.5);
+    text-align:center;
+ }
+ #about .card .circle-container{
+    position:relative;
+    background-color: var(--blue-primary);
+    width:250px;
+    height:250px;
+    border:none;
+    border-radius:50%;
+    margin:auto;
+    color:#fff;
+ }
+ #about .circle-container h1{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    margin:0;
+    font-size:60px;
+ }
+ 
+ #about .team .card h2{
+    text-align:center;
+    margin:30px 0 0 0;
+ }
+ #about .team .card h4{
+    text-align:center;
+    margin:10px 0 0 0;
+ }
+ #about .team .card p{
+    width:250px;
+    margin:30px auto;
+    text-align:center;
+ 
+ }
+ /* .clear{
+     clear: both;			
+ } */
+ 
 /* footer */
 
 #footer {
@@ -753,6 +854,27 @@ a:hover {
         flex-direction: column;
         align-items: center;
     }
+    #about .container-lg  p.common-introtext{
+        font-size: 18px;
+        margin: 40px auto 5px auto;
+        /* line-height: 1.5; */
+        /* letter-spacing: .8px; */
+        width: 80%;
+    }
+    #about .team .card h2{
+        text-align:center;
+        margin:30px 0 0 0;
+        font-size: 1.6rem;
+     }
+     #about .team .card h4{
+        text-align:center;
+        margin:10px 0 0 0;
+        font-size: 1.2rem;
+     }
+     #about .team .card p {
+         line-height: 1.4;
+     }
+
 
 }
 
@@ -851,6 +973,33 @@ a:hover {
         flex-direction: column;
         align-items: center;
     }
+    #about .container-lg h1.common-pagetitle.title{
+        font-size: 30px;
+        /* margin-top: 50px; */
+        /* line-height: 1.5; */
+        /* letter-spacing: .8px; */
+    }
+    #about .container-lg  p.common-introtext{
+        font-size: 18px;
+        margin: 40px auto 25px auto;
+        /* line-height: 1.5; */
+        /* letter-spacing: .8px; */
+        width: 80%;
+        text-align: justify;
+    }
+    #about .team{
+        margin-bottom: -20%;
+    }
+    #about .team h1{
+        font-size: 30px;
+    }
+    #about .team .card p{
+        width:250px;
+        margin:30px auto;
+        text-align:justify;
+        padding: 10px;
+        line-height: 1.4;
+     }
     
 }
 
