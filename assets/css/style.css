@@ -657,7 +657,30 @@ a:hover {
     padding: 6px 16px;
     color: var(--white);
 }
+/* Error */
+.container-error{
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+}
+.container-error .error-text{
+    display: flex;
+    margin-top: 30px;
+}
+.container-error .error-text .error-txt{
+margin: 5px;
+font-size: 1em;
+text-transform: uppercase;
+text-decoration: var(--bold);
+}
 
+.container-error .error-image{
+    margin-top: 30px;
+    width: 50%;
+}
+.container-error .error-image .error-img{
+    width: 100%;
+}
 /* footer */
 
 #footer {
