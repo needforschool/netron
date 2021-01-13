@@ -671,6 +671,23 @@ a:hover {
     min-height: 200px;
 }
 
+/* forgot password */
+
+#forgot_password {
+    margin: 100px;
+}
+
+#forgot_password form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#forgot_password  {
+    
+}
+
+
 /* legal */
 
 #legal .legal-content {

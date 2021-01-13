@@ -7,6 +7,9 @@ const init = () => {
   initModal();
   initLocalization();
   initForm('.form-contact');
+  initForm('.form-forgot', (res) => {
+    console.log(res)
+  });
   initForm('.form-login', (response) => {
     if (response.success) window.location.href = './dashboard';
   })
