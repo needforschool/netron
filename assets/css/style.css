@@ -55,14 +55,6 @@ table {
     --semi-bold: 500;
     --bold: 700;
     --columnCountMax: 4;
-    --gradientColorZero: #a960ee;
-    --gradientColorOne: #ff333d;
-    --gradientColorTwo: #90e0ff;
-    --gradientColorThree: #ffcb57;
-    --gradientColorZeroTransparent: rgba(169, 96, 238, 0);
-    --gradientColorOneTransparent: rgba(255, 51, 61, 0);
-    --gradientColorTwoTransparent: rgba(144, 224, 255, 0);
-    --gradientColorThreeTransparent: rgba(255, 203, 87, 0);
 }
 
 body {
@@ -229,7 +221,7 @@ a:hover {
     top: -340px;
     bottom: 0;
     position: absolute;
-    background: radial-gradient(var(--gradientColorThree) 23%, var(--gradientColorThreeTransparent) 67% 100%) 385px -24px, radial-gradient(var(--gradientColorOne) 0, var(--gradientColorOneTransparent) 60% 100%) -940px 290px, radial-gradient(var(--gradientColorTwo) 10%, var(--gradientColorTwoTransparent) 60% 100%) -120px 250px, radial-gradient(var(--gradientColorOne) 40%, var(--gradientColorOneTransparent) 57% 100%) 495px -44px, radial-gradient(var(--gradientColorZero) 30%, var(--gradientColorZeroTransparent) 67% 100%) 122px -120px, radial-gradient(var(--gradientColorZero) 10%, var(--gradientColorZeroTransparent) 60% 100%) -420px 120px, radial-gradient(var(--gradientColorTwo) 15%, var(--gradientColorTwoTransparent) 50% 100%) -620px 0, radial-gradient(var(--gradientColorTwo) 25%, var(--gradientColorTwoTransparent) 50% 100%) 520px -250px, var(--gradientColorZero);
+    background: radial-gradient( #ffcb57 23%, rgba(255, 203, 87, 0) 67% 100%) 385px -24px, radial-gradient( #ff333d 0, rgba(255,51,61,0) 60% 100%) -940px 290px, radial-gradient(#90e0ff 10%, rgb(144,224,255,0) 60% 100%) -120px 250px, radial-gradient(#ff333d 40%, rgba(255,51,61,0) 57% 100%) 495px -44px, radial-gradient(#a960ee 30%, rgb(169,96,238,0) 67% 100%) 122px -120px, radial-gradient(#a960ee 10%, rgb(169,96,238,0) 60% 100%) -420px 120px, radial-gradient(#90e0ff 15%, rgb(144,224,255,0) 50% 100%) -620px 0, radial-gradient(#90e0ff 25%, rgb(144,224,255,0) 50% 100%) 520px -250px, #a960ee;
     background-size: 1800% 1800%;
     -webkit-animation: rainbow 18s ease infinite;
     -z-animation: rainbow 18s ease infinite;
@@ -693,6 +685,92 @@ a:hover {
     text-align: center;
 }
 
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.section-padding .container-lg {
+    max-width: 1040px;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.section-padding .container-lg .txt-about {
+    flex: 1;
+}
+
+
+.section-padding {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    padding: 180px 0 100px;
+}
+
+.section-padding .background_container {
+    transform: skewY(-8deg);
+    background-color:#eeeeee;
+    z-index: -2;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0px;
+    bottom: 0;
+    position: absolute;
+}
+
+.section-padding .background_container2 {
+    background-color:#eeeeee;
+    z-index: -2;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 140px;
+    bottom: 0;
+    position: absolute;
+}
+
+.section-padding .container-lg .txt-about .txt-big {
+    margin: 0 0 16px;
+    font: 900 26px Camphor;
+    line-height: 1.4;
+    color: var(--blue-primary);
+    margin: 0px 15px 15px;
+    
+}
+
+.section-padding .container-lg .txt-about .txt-medium {
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 32px;
+    color: var(--blue-primary);
+    margin: 0px 15px 15px;
+}
+.section-padding .container-lg .swiper-container2 {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    flex: 1;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+}
+
+.section-padding .container-lg .swiper-container2 .swiper-wrapper .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 200px;
+    height: 400px;
+}
+
 /* footer */
 
 #footer {
@@ -793,7 +871,11 @@ a:hover {
         line-height: 1.4;
     }
 }
-
+@media only screen and (max-width: 880px) {
+    .section-padding .container-lg {
+        flex-direction: column;
+    }
+}
 @media only screen and (max-width: 750px) {
     :root {
         --columnCountMax: 2;

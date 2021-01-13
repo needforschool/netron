@@ -33,6 +33,25 @@ const initSwiper = () => {
   });
 }
 
+  var swiper = new Swiper('.swiper-container2', {
+    effect: 'coverflow',
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: 'auto',
+    loop: true,
+    coverflowEffect: {
+      rotate: 50,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: true,
+    },
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+    }
+  });
+
 const initNavbarResponsive = () => {
   header.querySelector('.nav-burger').addEventListener('click', () => {
     if (navResponsive.style.display == 'none' || !navResponsive.style.display) navResponsive.style.display = 'flex';
@@ -135,26 +154,6 @@ const initForm = (formClass, successHandler = () => { }) => {
   });
 }
 
+
 init();
 
-var galleryThumbs = new Swiper('.gallery-thumbs', {
-      spaceBetween: 10,
-      slidesPerView: 4,
-      loop: true,
-      freeMode: true,
-      loopedSlides: 5, //looped slides should be the same
-      watchSlidesVisibility: true,
-      watchSlidesProgress: true,
-    });
-    var galleryTop = new Swiper('.gallery-top', {
-      spaceBetween: 10,
-      loop: true,
-      loopedSlides: 5, //looped slides should be the same
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      thumbs: {
-        swiper: galleryThumbs,
-      },
-    });
