@@ -26,7 +26,7 @@ if (isLogged()) {
     <link rel="stylesheet" href="./../assets/css/style.css">
     <link rel="stylesheet" href="./../assets/css/dashboard.css">
     <link rel="stylesheet" href="./../assets/css/errors.css">
-    
+
     <link rel="shortcut icon" href="./../assets/img/favicon/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="./../assets/img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./../assets/img/favicon-32x32.png">
@@ -54,7 +54,12 @@ if (isLogged()) {
             <div class="cards-container">
                 <div class="cards-row">
                     <div class="cards-item cards-charts">
-                        <canvas id="chartAmountPerRequests" width="400" height="150"></canvas>
+                        <div class="charts-item active"><canvas id="chartAmountPerRequests"></canvas></div>
+                        <div class="charts-container hidden">
+                            <div class="charts-item"><canvas class="charts-item" id="chartTTLPerRequests"></canvas></div>
+                            <div class="charts-item"><canvas class="charts-item" id="chartTimeoutPerRequests"></canvas></div>
+                        </div>
+                        <i class="ri-toggle-line" role="switch-chart"></i>
                     </div>
                     <div class="cards-item cards-profile">
                         <form class="form-profile" action="./../api/users/edit.php" method="POST">

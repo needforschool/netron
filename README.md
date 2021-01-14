@@ -68,7 +68,18 @@ Notes:
 
 ## Credits
 Ce projet contient les éléments open source suivants:
+* [Autoprefixer](https://autoprefixer.github.io/)
+* [Chart.js](https://chartjs.org/)
+* [dotenv](https://github.com/symfony/dotenv)
+* [Composer](https://getcomposer.org/)
 * [Google Fonts](https://fonts.google.com)
+* [jQuery](https://jquery.com/)
+* [PHP](https://www.php.net/)
+* [PHPMailer](https://github.com/PHPMailer/PHPMailer)
+* [Remix Icon](https://remixicon.com)
+* [Reset CSS](https://meyerweb.com/eric/tools/css/reset/)
+* [Swiper](https://swiperjs.com/)
+* [unDraw](https://undraw.co)
 
 ## Links
 * [NFactory](https://nfactory.io)

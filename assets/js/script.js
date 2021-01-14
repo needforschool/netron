@@ -1,3 +1,6 @@
+$(document).ready(function () {
+  init();
+});
 
 const header = document.getElementById('header');
 const navResponsive = header.querySelector('.nav-responsive');
@@ -7,18 +10,20 @@ const init = () => {
   initNavbarResponsive();
   initModal();
   initLocalization();
-  initForm('.form-contact');
-  initForm('.form-forgot', (response) => {
-    console.log(response);
+  initForm('.form-contact', (response) => {
+    if (response.success) window.location.href = './';
   });
+  initForm('.form-forgot');
   initForm('.form-recovery', (response) => {
-    console.log(response);
+    if (response.success) window.location.href = './';
   });
   initForm('.form-login', (response) => {
     if (response.success) loginSuccessHandler();
+    if (response.errors) loginErrorHandler('.form-login', response.errors);
   })
   initForm('.form-register', (response) => {
     if (response.success) loginSuccessHandler();
+    if (response.errors) loginErrorHandler('.form-register', response.errors);
   })
 }
 
@@ -32,6 +37,12 @@ const loginSuccessHandler = () => {
     error: () => {
       console.log('Request failed');
     }
+  });
+}
+
+const loginErrorHandler = (parent, errors) => {
+  $.each(errors, (key, value) => {
+    $(`${parent} [name="${key}"]`).addClass('error').focus((e) => $(e.target).removeClass('error'))
   });
 }
 
@@ -177,15 +188,13 @@ const initForm = (formClass, successHandler = () => { }) => {
 const initError = (errors) => {
   const errorContainer = $('.errors-wrapper .errors-container');
   $.each(errors, (key, value) => {
-    console.log(key, value);
     errorContainer.append(`
       <div class="error-item">
         <h6>Une erreur est survenue</h6>
         <p><span>${key}</span>: ${value}</p>
-        <div class="btn btn-white" onclick="this.parentNode.remove()">Fermer</div>
+        <div class="btn btn-white" onclick="$(this).parent().remove();">Fermer</div>
       </div>
     `)
   });
 }
 
-init();

@@ -17,27 +17,28 @@ include('./src/template/header.php');
             </div>
         </div>
     </div>
-</div>
-<section class="section-padding">
-    <div class="background_container"></div>
-    <div class="container-lg">
-        <div class="txt-about">
-            <h3 class="txt-big">Le potentiel du réseaux en ligne</h3>
-            <p class="txt-medium">Bien que l'expenstion des entreprises en ligne soit plus rapide que celle du reste de l’économie, seulement <span class="u-emphasis">3% </span> du commerce mondial a lieu en ligne.</p>
-            <p class="txt-medium">La complexité réglementaire, un système financier mondial pour le moins tortueux et une pénurie d’ingénieurs limitent l’impact de l’économie en ligne.</p>
-            <p class="txt-medium">La suppression des barrières pour les réseaux en ligne permet à de nouvelles entreprises de se lancer, favorise la croissance des entreprises existantes et augmente l'efficacité d'analyser un réseau de manière globale.</p>
-        </div>
-        <div class="swiper-container2">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide" style="background-image:url(assets/img/tree.png)"></div>
-                <div class="swiper-slide" style="background-image:url(assets/img/sort.png)"></div>
-                <div class="swiper-slide" style="background-image:url(assets/img/tab.png)"></div>
+    <div class="section-padding">
+        <div class="background_container"></div>
+        <div class="container-lg">
+            <div class="txt-about">
+                <h3 class="txt-big">Le potentiel du réseaux en ligne</h3>
+                <p class="txt-medium">Bien que l'expenstion des entreprises en ligne soit plus rapide que celle du reste de l’économie, seulement <span class="u-emphasis">3% </span> du commerce mondial a lieu en ligne.</p>
+                <p class="txt-medium">La complexité réglementaire, un système financier mondial pour le moins tortueux et une pénurie d’ingénieurs limitent l’impact de l’économie en ligne.</p>
+                <p class="txt-medium">La suppression des barrières pour les réseaux en ligne permet à de nouvelles entreprises de se lancer, favorise la croissance des entreprises existantes et augmente l'efficacité d'analyser un réseau de manière globale.</p>
             </div>
-            <!-- Add Pagination -->
-            <div class="swiper-pagination"></div>
+            <div class="swiper-container2">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" style="background-image:url(assets/img/tree.png)"></div>
+                    <div class="swiper-slide" style="background-image:url(assets/img/sort.png)"></div>
+                    <div class="swiper-slide" style="background-image:url(assets/img/tab.png)"></div>
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
         </div>
     </div>
-</section>
+</div>
+
 <section id="preview" style="margin-top: 0; margin-bottom: -180px;">
     <div class="background-blue-primary"></div>
     <div class="preview-wrapper container">

@@ -1,3 +1,11 @@
+let chartAmountPerRequests;
+let chartTTLPerRequests;
+let chartTimeoutPerRequests;
+
+$(document).ready(function () {
+    init();
+});
+
 const init = () => {
     const logsOrder = $('#logs-order');
     logsOrder.change(() => {
@@ -7,6 +15,7 @@ const init = () => {
     });
 
     initLogoutBtn();
+    initSwitchChartBtn();
     initForm('.form-profile');
     initTableHeader();
     initRequest(logsOrder);
@@ -84,42 +93,148 @@ const initRequest = (logsOrder) => {
                     break;
             }
 
-            let chartAmountPerRequestsArray = [];
+            let protocols = [];
 
             response.trames.forEach(trame => {
                 trame.date = new Date(trame.date * 1000);
 
-                if (!chartAmountPerRequestsArray.filter(item => (item.protocolName === trame.protocol.name)).length > 0) chartAmountPerRequestsArray.push({
+                if (!protocols.filter(item => (item.protocolName === trame.protocol.name)).length > 0) protocols.push({
                     protocolName: trame.protocol.name,
                     amount: 0,
-                    color: `${randomInt(0, 210) + "," + randomInt(0, 210) + "," + '210'}`
+                    color: `${randomInt(0, 210) + "," + randomInt(0, 210) + "," + '210'}`,
+                    ttl: 0,
+                    timeout: 0
                 });
 
-                chartAmountPerRequestsArray.forEach(obj => {
-                    if (trame.protocol.name == obj.protocolName) obj.amount++;
+                protocols.forEach(obj => {
+                    if (trame.protocol.name == obj.protocolName) {
+                        obj.amount++;
+                        obj.ttl += trame.ttl;
+                        obj.timeout += (trame.status == 'timeout') ? 1 : 0;
+                    };
                 })
 
-                initTableRow(trame, chartAmountPerRequestsArray);
+                initTableRow(trame, protocols);
             });
 
+            // chartAmountPerRequests
             let chartAmountPerRequestsLabels = [];
             let chartAmountPerRequestsDatasets = []
             let chartAmountPerRequestsData = [];
-            let chartAmountPerRequestsBackgroundColor = [];
 
-            chartAmountPerRequestsArray.forEach(obj => {
+            protocols.forEach(obj => {
                 chartAmountPerRequestsLabels.push(obj.protocolName);
                 chartAmountPerRequestsData.push(obj.amount);
-                chartAmountPerRequestsBackgroundColor.push(obj.color);
                 chartAmountPerRequestsDatasets.push({
                     label: obj.protocolName,
                     data: [obj.amount],
                     borderWidth: 1,
-                    backgroundColor: ['rgba(' + obj.color + ', .75)'],
+                    backgroundColor: ['rgba(' + obj.color + ', .25)'],
+                    borderColor: ['rgba(' + obj.color + ', .75)']
                 });
             });
 
-            initChart('Nombre de trames par type de requête', '#chartAmountPerRequests', 'bar', [], chartAmountPerRequestsDatasets);
+            if (chartAmountPerRequests != null) chartAmountPerRequests.destroy();
+            chartAmountPerRequests = new Chart($('#chartAmountPerRequests'), {
+                type: 'bar',
+                data: {
+                    labels: ['trames'],
+                    datasets: chartAmountPerRequestsDatasets
+                },
+                options: {
+                    legend: {
+                        display: false
+                    },
+                    maintainAspectRatio: false,
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    title: {
+                        display: true,
+                        text: 'Nombre de trames par type de requête'
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: (tooltipItem) => {
+                                return tooltipItem.yLabel;
+                            }
+                        }
+                    }
+                }
+            });
+
+            // chartTTLPerRequests
+            let chartTTLPerRequestsLabels = [];
+            let chartTTLPerRequestsData = [];
+            let chartTTLPerRequestsBackgroundColor = [];
+            let chartTTLPerRequestsBorderColor = [];
+
+            protocols.forEach(obj => {
+                chartTTLPerRequestsLabels.push(obj.protocolName);
+                chartTTLPerRequestsData.push(obj.ttl);
+                chartTTLPerRequestsBackgroundColor.push('rgba(' + obj.color + ', .25)');
+                chartTTLPerRequestsBorderColor.push('rgba(' + obj.color + ', .75)');
+            });
+
+            if (chartTTLPerRequests != null) chartTTLPerRequests.destroy();
+            chartTTLPerRequests = new Chart($('#chartTTLPerRequests'), {
+                type: 'pie',
+                data: {
+                    labels: chartTTLPerRequestsLabels,
+                    datasets: [{
+                        data: chartTTLPerRequestsData,
+                        borderWidth: 1,
+                        backgroundColor: chartTTLPerRequestsBackgroundColor,
+                        borderColor: chartTTLPerRequestsBorderColor
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    title: {
+                        display: true,
+                        text: 'Nombre de TTL par type de requête'
+                    }
+                }
+            });
+
+            // chartTTLPerRequests
+            let chartTimeoutPerRequestsLabels = [];
+            let chartTimeoutPerRequestsData = [];
+            let chartTimeoutPerRequestsBackgroundColor = [];
+            let chartTimeoutPerRequestsBorderColor = [];
+
+            protocols.forEach(obj => {
+                chartTimeoutPerRequestsLabels.push(obj.protocolName);
+                chartTimeoutPerRequestsData.push(obj.timeout);
+                chartTimeoutPerRequestsBackgroundColor.push('rgba(' + obj.color + ', .25)');
+                chartTimeoutPerRequestsBorderColor.push('rgba(' + obj.color + ', .75)');
+            });
+
+            if (chartTimeoutPerRequests != null) chartTimeoutPerRequests.destroy();
+            chartTimeoutPerRequests = new Chart($('#chartTimeoutPerRequests'), {
+                type: 'pie',
+                data: {
+                    labels: chartTimeoutPerRequestsLabels,
+                    datasets: [{
+                        data: chartTimeoutPerRequestsData,
+                        borderWidth: 1,
+                        backgroundColor: chartTimeoutPerRequestsBackgroundColor,
+                        borderColor: chartTimeoutPerRequestsBorderColor
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    title: {
+                        display: true,
+                        text: 'Nombre de Timeout par type de requête'
+                    }
+                }
+            });
+
         }
     });
 }
@@ -237,7 +352,6 @@ const initForm = (formClass, successHandler = () => { }) => {
 const initError = (errors) => {
     const errorContainer = $('.errors-wrapper .errors-container');
     $.each(errors, (key, value) => {
-        console.log(key, value);
         errorContainer.append(`
         <div class="error-item">
             <h6>Une erreur est survenue</h6>
@@ -267,7 +381,8 @@ const initChart = (title, selector, type, labels, datasets) => {
             title: {
                 display: true,
                 text: title
-            }
+            },
+            responsive: true
         }
     });
     return chart;
@@ -280,11 +395,19 @@ const initLogoutBtn = () => {
             type: 'GET',
             url: './../api/users/logout.php',
             success: (response) => {
-                console.log(response);
                 if (response.success) window.location.href = './../';
             }
         });
     })
 }
 
-init();
+const initSwitchChartBtn = () => {
+    const btn = $('[role="switch-chart"]');
+    btn.click((e) => {
+        e.preventDefault();
+        btn.toggleClass('ri-toggle-line');
+        btn.toggleClass('ri-toggle-fill');
+        $('.cards-charts > .charts-item').toggleClass('active').toggleClass('hidden');
+        $('.cards-charts > .charts-container').toggleClass('active').toggleClass('hidden');
+    })
+}
