@@ -15,11 +15,24 @@ const init = () => {
     console.log(response);
   });
   initForm('.form-login', (response) => {
-    if (response.success) window.location.href = './dashboard';
+    if (response.success) loginSuccessHandler();
   })
   initForm('.form-register', (response) => {
-    if (response.success) window.location.href = './dashboard';
+    if (response.success) loginSuccessHandler();
   })
+}
+
+const loginSuccessHandler = () => {
+  $.ajax({
+    type: 'GET',
+    url: './api/logs/add.php',
+    success: (res) => {
+      if (res.success) window.location.href = './dashboard';
+    },
+    error: () => {
+      console.log('Request failed');
+    }
+  });
 }
 
 const initSwiper = () => {
