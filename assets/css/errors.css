@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 6 version
+*/
+
 .errors-wrapper {
     position: fixed;
     top: 0;
@@ -9,8 +16,12 @@
     display: -ms-flexbox;
     display: flex;
     pointer-events: none;
-    align-items: flex-end;
-    justify-content: flex-end;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
 }
 
 .errors-wrapper .errors-container {
@@ -37,6 +48,12 @@
     -ms-flex-align: center;
     align-items: center;
     text-align: center;
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+    -webkit-animation-name: fadeInDown;
+            animation-name: fadeInDown;
 }
 
 .errors-wrapper .errors-container .error-item h6 {

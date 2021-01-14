@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 6 version
+*/
+
 /* main */
 
 html, body, a, input, button {
@@ -18,6 +25,8 @@ b {
 }
 
 .background-blue-primary {
+    -webkit-transform: skeWy(0);
+    -ms-transform: skeWy(0);
     transform: skeWy(0);
 }
 
@@ -30,18 +39,30 @@ b {
 /* dashboard */
 
 #dashboard {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
 }
 
 #dashboard .cards-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
 }
 
 #dashboard .cards-container>.btn {
+    -moz-appearance: none;
     appearance: none;
-    -webkit-appearance:none;
+    -webkit-appearance: none;
+    -ms-flex-item-align: start;
     align-self: flex-start;
     border-radius: 5px;
     background-color: rgba(255, 255, 255, .05);
@@ -53,6 +74,8 @@ b {
 }
 
 #dashboard .cards-container .cards-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 
@@ -65,7 +88,11 @@ b {
 }
 
 #dashboard .cards-container .cards-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
     flex: 1;
     padding: 10px 20px;
     background-color: rgba(255, 255, 255, .05);
@@ -74,17 +101,64 @@ b {
 }
 
 #dashboard .cards-container .cards-item.cards-charts {
+    position: relative;
+    -webkit-box-flex: 3;
+    -ms-flex: 3;
     flex: 3;
 }
 
-#dashboard .cards-container .cards-item.cards-profile {
+#dashboard .cards-container .cards-charts [role="switch-chart"] {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 5;
+    cursor: pointer;
+}
+
+#dashboard .cards-container .cards-charts .active {
+    display: flex !important;
+}
+
+#dashboard .cards-container .cards-charts .hidden {
+    display: none !important;
+}
+
+#dashboard .cards-container .cards-charts .charts-item {
+    height: 150px;
+    width: 100%;
+    max-width: 100%;
+    max-height: 150px;
+}
+
+#dashboard .cards-container .cards-charts .charts-container {
     display: flex;
+    width: 100%;
+}
+
+#dashboard .cards-container .cards-charts .charts-container .charts-item {
+    flex: 1;
+}
+
+#dashboard .cards-container .cards-item.cards-profile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
 
 #dashboard .cards-container .cards-profile .form-profile {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
 }
 
@@ -155,17 +229,34 @@ b {
     border-right: 0;
 }
 
+@media only screen and (max-width: 1498px) {
+    #dashboard .cards-container, #header .navbar .container {
+        padding: 0 15px;
+    }
+}
+
 @media only screen and (max-width: 750px) {
     #dashboard .cards-container {
         padding: 0 15px;
     }
     #dashboard .cards-container .cards-row {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
     }
     #dashboard .cards-container .cards-item {
         margin: 5px 0;
     }
     #dashboard .cards-container>.btn {
+        -ms-flex-item-align: auto;
+        -ms-grid-row-align: auto;
         align-self: auto;
+    }
+    #dashboard .cards-container .cards-charts .charts-container {
+        flex-direction: column;
+    }
+    #chartTTLPerRequests, #chartTimeoutPerRequests {
+        height: 150px !important;
     }
 }

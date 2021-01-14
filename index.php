@@ -52,13 +52,12 @@ include('./src/template/header.php');
     <div class="preview-wrapper container">
         <div class="preview-text">
                 <h3 class="preview-text-tag">Conçue pour vous</h3>
-                <h1 class="preview-text-title">L'une des interfaces les plus simple rapide et efficace de son
-                    domaine</h1>
-                <p class="preview-text-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium ex
-                    debitis dignissimos? Ad deleniti accusantium, deserunt quisquam, repellat velit praesentium
-                    natus, voluptas explicabo et pariatur fugit? Aut tempora rerum assumenda amet recusandae odit
-                    nihil natus, fuga distinctio velit harum ducimus sunt placeat accusantium facere dicta quas
-                    quaerat in et. Dolorem!</p>
+                <h1 class="preview-text-title">Une solution simple d'utilisation</h1>
+                <p class="preview-text-desc">
+                    Analyser des trames réseaux sur notre site internet plutôt qu'un logiciel tiers
+                    est un bon choix, car nous axons notre espace client sur la simplicité et la facilité de
+                    compréhension de vos infrastructures réseaux.
+                </p>
                 <div class="preview-text-btn">
                     <a class="btn btn-blue-secondary" href="./about.php">En savoir plus
                         <svg class="btn-arrow" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
@@ -75,10 +74,12 @@ include('./src/template/header.php');
                 <div class="swiper-wrapper">
                     <div class="swiper-slide" style="background-image:url(assets/img/home-tree.png)">
                     </div>
+                    <div class="swiper-slide" style="background-image:url(assets/img/home-graph.png">
+                    </div>
                     <div class="swiper-slide" style="background-image:url(assets/img/home-account-user.png)">
                     </div>
                     <div class="swiper-slide" style="background-image:url(assets/img/home-tram.png">
-                    </div>
+                    </div>     
                 </div>
                 <!-- Add Pagination -->
                 <div class="swiper-pagination"></div>

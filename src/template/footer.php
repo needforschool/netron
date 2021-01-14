@@ -22,7 +22,7 @@
         </div>
         <div class="footer-row">
             <div class="footer-col">
-                <h3 class="footer-title">Partners</h3>
+                <h3 class="footer-title">Partenaires</h3>
                 <ul class="footer-list">
                     <li class="footer-item">
                         <a class="footer-link" href="https://campus-saint-marc.com/" target="_blank" rel="noopener noreferrer">Campus Saint
