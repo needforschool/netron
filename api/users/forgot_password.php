@@ -24,7 +24,7 @@ if (empty($user)) $errors['mail'] = 'Email introuvable';
 else {
     if (count($errors) == 0) {
         $currentLink = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-        $recoveryLink = str_replace(basename(__FILE__), 'recovery.php', $currentLink);
+        $recoveryLink = str_replace(basename(__FILE__), '../../recovery.php', $currentLink);
 
         $mail = new PHPMailer(true);
         $mail->CharSet = "UTF-8";

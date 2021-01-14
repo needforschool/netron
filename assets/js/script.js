@@ -1,3 +1,4 @@
+
 const header = document.getElementById('header');
 const navResponsive = header.querySelector('.nav-responsive');
 
@@ -7,8 +8,11 @@ const init = () => {
   initModal();
   initLocalization();
   initForm('.form-contact');
-  initForm('.form-forgot', (res) => {
-    console.log(res)
+  initForm('.form-forgot', (response) => {
+    console.log(response);
+  });
+  initForm('.form-recovery', (response) => {
+    console.log(response);
   });
   initForm('.form-login', (response) => {
     if (response.success) window.location.href = './dashboard';
@@ -37,7 +41,7 @@ const initSwiper = () => {
 }
 
 const initNavbarResponsive = () => {
-  header.querySelector('.nav-burger').addEventListener('click', () => {
+  $('header .nav-burger').click(() => {
     if (navResponsive.style.display == 'none' || !navResponsive.style.display) navResponsive.style.display = 'flex';
     navResponsive.classList.toggle('active');
   })
@@ -52,9 +56,7 @@ const initModal = () => {
   const formLogin = $('.modal-wrapper .form-login');
 
   modalCloseButton.click((e) => {
-    if (e.target == document.querySelector('.modal-wrapper')) {
-      modalsWrapper.toggleClass('active');
-    }
+    modalsWrapper.toggleClass('active');
   })
 
   modalsWrapper.click((e) => {
@@ -76,14 +78,14 @@ const initModal = () => {
 
   btnRegister.click((e) => {
     e.preventDefault();
-    formLogin.style.display = 'none';
-    formRegister.style.display = 'flex';
+    formLogin.css('display', 'none');
+    formRegister.css('display', 'flex');
   });
 
   btnLogin.click((e) => {
     e.preventDefault();
-    formLogin.style.display = 'none';
-    formRegister.style.display = 'flex';
+    formLogin.css('display', 'flex');
+    formRegister.css('display', 'none');
   });
 }
 
@@ -127,6 +129,7 @@ const initForm = (formClass, successHandler = () => { }) => {
             }, 2000)
           }
         }
+        initError(response.errors);
       },
       error: () => {
         if (!$('.btn[type="submit"]').hasClass('btn-error')) {
@@ -137,6 +140,20 @@ const initForm = (formClass, successHandler = () => { }) => {
         }
       }
     })
+  });
+}
+
+const initError = (errors) => {
+  const errorContainer = $('.errors-wrapper .errors-container');
+  $.each(errors, (key, value) => {
+    console.log(key, value);
+    errorContainer.append(`
+      <div class="error-item">
+        <h6>Une erreur est survenue</h6>
+        <p><span>${key}</span>: ${value}</p>
+        <div class="btn btn-white" onclick="this.parentNode.remove()">Fermer</div>
+      </div>
+    `)
   });
 }
 

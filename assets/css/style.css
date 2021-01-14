@@ -69,13 +69,34 @@ body {
     background-color: var(--white);
     height: 100%;
     width: 100%;
+    scrollbar-color: rgba(0, 0, 0, 1) var(--blue-primary);
 }
 
-body, a, input, button {
+html, body, a, input, button {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     font-weight: var(--regular);
-    color: var(---black);
+    color: var(--blue-primary);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    /* vertical scrollbars */
+    height: 8px;
+    /* horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track {
+    background: var(--blue-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--white);
+    height: 10px;
+}
+
+::-webkit-scrollbar-track-piece {
+    height: 30px;
 }
 
 a {
@@ -353,7 +374,7 @@ a:hover {
 
 #header .modal-wrapper {
     position: fixed;
-    z-index: 100;
+    z-index: 50;
     left: 0;
     top: 0;
     width: 100%;
@@ -403,6 +424,7 @@ a:hover {
     top: 15px;
     cursor: pointer;
     transition: all .2s;
+    color: var(--blue-primary);
 }
 
 #header .modal-wrapper .modal-content .modal-close:hover {
@@ -677,16 +699,13 @@ a:hover {
     margin: 100px;
 }
 
-#forgot_password form{
+#forgot_password form {
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-#forgot_password  {
-    
-}
-
+#forgot_password {}
 
 /* legal */
 

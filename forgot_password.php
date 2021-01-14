@@ -6,22 +6,17 @@ include('./src/template/header.php');
 
 <section id="forgot_password">
     <div class="container">
-        <div class="form-forgot">
-            <form action="./api/users/forgot_password.php" method="POST">
-                <input type="email" name="mail" placeholder="Votre email" value="<?= (!empty($_SESSION['netron']['user']['mail'])) ? $_SESSION['netron']['user']['mail'] : '' ?>">
-                <button type="submit" name="submit" class="btn btn-blue-primary" >Envoyer
-                    <svg class="btn-arrow" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
-                        <g fill-rule="evenodd">
-                            <path class="btn-arrow-line" d="M0 5h7"></path>
-                            <path class="btn-arrow-tip" d="M1 1l4 4-4 4"></path>
-                        </g>
-                    </svg>
-                </button>
-            </form>
-        </div>
-        <div class="forgot-image">
-            <!-- <img src="assets\img\undraw_forgot_password_gi2d.svg" alt="Image forgot"> -->
-        </div>
+        <form class="form-forgot" action="./api/users/forgot_password.php" method="POST">
+            <input type="email" name="mail" placeholder="Votre email" value="<?= (!empty($_SESSION['netron']['user']['mail'])) ? $_SESSION['netron']['user']['mail'] : '' ?>">
+            <button type="submit" name="submit" class="btn btn-blue-primary">Envoyer
+                <svg class="btn-arrow" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
+                    <g fill-rule="evenodd">
+                        <path class="btn-arrow-line" d="M0 5h7"></path>
+                        <path class="btn-arrow-tip" d="M1 1l4 4-4 4"></path>
+                    </g>
+                </svg>
+            </button>
+        </form>
     </div>
 </section>
 

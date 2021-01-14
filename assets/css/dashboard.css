@@ -1,5 +1,12 @@
 /* main */
 
+html, body, a, input, button {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: var(--regular);
+    color: var(--white);
+}
+
 b {
     font-weight: var(--bold);
 }
@@ -30,6 +37,19 @@ b {
 #dashboard .cards-container {
     display: flex;
     flex-direction: column;
+}
+
+#dashboard .cards-container>.btn {
+    appearance: none;
+    -webkit-appearance:none;
+    align-self: flex-start;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, .05);
+    opacity: 1;
+}
+
+#dashboard .cards-container>.btn option {
+    background-color: var(--blue-primary);
 }
 
 #dashboard .cards-container .cards-row {
@@ -144,5 +164,8 @@ b {
     }
     #dashboard .cards-container .cards-item {
         margin: 5px 0;
+    }
+    #dashboard .cards-container>.btn {
+        align-self: auto;
     }
 }
