@@ -51,7 +51,7 @@ include('./src/template/header.php');
     <div class="background-blue-primary"></div>
     <div class="preview-wrapper container">
         <div class="preview-text">
-            <h3 class="preview-text-tag">Conçue pour vous</h1>
+                <h3 class="preview-text-tag">Conçue pour vous</h3>
                 <h1 class="preview-text-title">L'une des interfaces les plus simple rapide et efficace de son
                     domaine</h1>
                 <p class="preview-text-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium ex

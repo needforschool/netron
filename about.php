@@ -29,9 +29,9 @@ include('./src/template/header.php');
         </div>
         <div class="swiper-container2">
             <div class="swiper-wrapper">
-                <div class="swiper-slide" style="background-image:url(assets/img/test.PNG)"></div>
-                <div class="swiper-slide" style="background-image:url(assets/img/Trie.PNG)"></div>
-                <div class="swiper-slide" style="background-image:url(assets/img/tab.PNG)"></div>
+                <div class="swiper-slide" style="background-image:url(assets/img/tree.png)"></div>
+                <div class="swiper-slide" style="background-image:url(assets/img/sort.png)"></div>
+                <div class="swiper-slide" style="background-image:url(assets/img/tab.png)"></div>
             </div>
             <!-- Add Pagination -->
             <div class="swiper-pagination"></div>
@@ -42,9 +42,9 @@ include('./src/template/header.php');
     <div class="background-blue-primary"></div>
     <div class="preview-wrapper container">
         <div class="preview-text">
-            <h3 class="preview-text-tag">Conçue pour vous</h1>
-                <h1 class="preview-text-title">L'une des interfaces les plus simple rapide et efficace de son domaine</h1>
-                <p class="preview-text-desc">Notre Dashboard simple d'utilisation et de compréhension permet le suivi de trame facilement et rapidement, grace notamment aux tries possibles des trames ainsi que des statistiques compréhensibles par tous.</p>
+            <h3 class="preview-text-tag">Conçue pour vous</h3>
+            <h1 class="preview-text-title">L'une des interfaces les plus simple rapide et efficace de son domaine</h1>
+            <p class="preview-text-desc">Notre Dashboard simple d'utilisation et de compréhension permet le suivi de trame facilement et rapidement, grace notamment aux tries possibles des trames ainsi que des statistiques compréhensibles par tous.</p>
         </div>
         <div class="preview-slider">
             <video class="video-item" autoplay loop playinline muted>
