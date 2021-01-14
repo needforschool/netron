@@ -27,6 +27,7 @@ if (count($errors) == 0) {
             'mail' => $user['mail'],
             'firstname' => $user['firstname'],
             'lastname' => $user['lastname'],
+            'token'   => $user['token'],
             'role'   => $user['role'],
             'ip'     => $_SERVER['REMOTE_ADDR']
         ];

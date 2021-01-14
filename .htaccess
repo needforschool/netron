@@ -2,11 +2,11 @@
   Require all denied
 </Files>
 
-ErrorDocument 401 "<h1>Woowww</h1>"
-ErrorDocument 403 ./error.php?e=403
-ErrorDocument 404 "<head><title>yeay</title></head>"
-ErrorDocument 405 ./error.php?e=405
-ErrorDocument 406 ./error.php?e=406
-ErrorDocument 500 ./error.php?e=500
-ErrorDocument 501 ./error.php?e=501
-ErrorDocument 503 ./error.php?e=503
+ErrorDocument 401 "<head><title>Erreur 401 - Netron</title><script>var pathName = window.location.pathname;var fileName = pathName.split('/').pop();if(fileName == 'error.php') window.location.replace('../error.php?e=401');else window.location.replace('./error.php?e=401');</script></head>"
+ErrorDocument 403 "<head><title>Erreur 403 - Netron</title><script>var pathName = window.location.pathname;var fileName = pathName.split('/').pop();if(fileName == 'error.php') window.location.replace('../error.php?e=403');else window.location.replace('./error.php?e=403');</script></head>"
+ErrorDocument 404 "<head><title>Erreur 404 - Netron</title><script>var pathName = window.location.pathname;var fileName = pathName.split('/').pop();if(fileName == 'error.php') window.location.replace('../error.php');else window.location.replace('./error.php');</script></head>"
+ErrorDocument 405 "<head><title>Erreur 405 - Netron</title><script>var pathName = window.location.pathname;var fileName = pathName.split('/').pop();if(fileName == 'error.php') window.location.replace('../error.php?e=404');else window.location.replace('./error.php?e=405');</script></head>"
+ErrorDocument 406 "<head><title>Erreur 406 - Netron</title><script>var pathName = window.location.pathname;var fileName = pathName.split('/').pop();if(fileName == 'error.php') window.location.replace('../error.php?e=404');else window.location.replace('./error.php?e=406');</script></head>"
+ErrorDocument 500 "<head><title>Erreur 500 - Netron</title><script>var pathName = window.location.pathname;var fileName = pathName.split('/').pop();if(fileName == 'error.php') window.location.replace('../error.php?e=500');else window.location.replace('./error.php?e=500');</script></head>"
+ErrorDocument 501 "<head><title>Erreur 501 - Netron</title><script>var pathName = window.location.pathname;var fileName = pathName.split('/').pop();if(fileName == 'error.php') window.location.replace('../error.php?e=501');else window.location.replace('./error.php?e=501');</script></head>"
+ErrorDocument 503 "<head><title>Erreur 503 - Netron</title><script>var pathName = window.location.pathname;var fileName = pathName.split('/').pop();if(fileName == 'error.php') window.location.replace('../error.php?e=503');else window.location.replace('./error.php?e=503');</script></head>"

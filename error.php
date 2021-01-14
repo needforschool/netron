@@ -14,17 +14,25 @@ switch ($error) {
         $message = 'Ressource non trouvée';
         break;
 }
-$title = ' Erreur ' . $error . ' - Bookination';
+$title = ' Erreur ' . $error . ' - Netron';
 include('src/template/header.php');
 ?>
 <section id="error">
-    <div class="container">
-        <div class="error-text">
-            <h1>Erreur <?= $error ?></h1>
-            <p><?= $message ?></p>
-        </div>
-        <div class="error-image">
-            <img src="assets/img/errors.gif" alt="erreur">
+    <div class="container ">
+        <div class="error-content">
+            <div class="error-text">
+                <h1 class="error-txt"><?= $error ?></h1>
+                <p class="error-txt"><?= $message ?></p>
+            </div>
+            <?php if ($error == 404) : ?>
+                <div class="error-image">
+                    <img class="error-img" src="assets/img/error_404.svg" alt="erreur">
+                </div>
+            <?php else : ?>
+                <div class="error-image">
+                    <img class="error-img" src="assets/img/undraw_warning.svg" alt="erreur">
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </section>

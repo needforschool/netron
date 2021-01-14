@@ -92,8 +92,8 @@ include('./src/template/header.php');
 </section>
 <section id="video-preview">
     <div class="video-wrapper container">
-        <video class="video-item" autoplay muted>
-            <source src="assets/media/test-video.mp4" type="video/mp4">
+        <video class="video-item" autoplay loop playinline muted>
+            <source src="./assets/media/dashboard-preview-desktop.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <button class="btn btn-blue-primary" <?= (isLogged()) ? 'role="btn-dashboard"' : 'role="btn-modal-login"' ?>>Commencer l'experience maintenant

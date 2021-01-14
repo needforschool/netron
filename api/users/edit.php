@@ -1,4 +1,4 @@
-<?php
+ <?php
 require('../../src/inc/pdo.php');
 require('../../src/inc/functions.php');
 $errors = [];

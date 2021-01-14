@@ -22,9 +22,10 @@ if (isLogged()) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="./../assets/css/style.css">
     <link rel="stylesheet" href="./../assets/css/dashboard.css">
-
+    <link rel="stylesheet" href="./../assets/css/errors.css">
 </head>
 
 <body style="color: var(--white);background-color: var(--blue-primary);">
@@ -44,17 +45,17 @@ if (isLogged()) {
     </header>
     <section id="dashboard">
         <div class="container">
-            <div class=" cards-container">
+            <div class="cards-container">
                 <div class="cards-row">
                     <div class="cards-item cards-charts">
-                        <canvas id="charts" width="400" height="150"></canvas>
+                        <canvas id="chartAmountPerRequests" width="400" height="150"></canvas>
                     </div>
                     <div class="cards-item cards-profile">
                         <form class="form-profile" action="./../api/users/edit.php" method="POST">
                             <input type="text" name="firstname" placeholder="Votre prénom" value="<?= $user['firstname'] ?>" onkeyup="firstnameInputHandler(this.value)" onkeypress="firstnameInputHandler(this.value)">
                             <input type="text" name="lastname" placeholder="Votre nom" value="<?= $user['lastname'] ?>" onkeyup="lastnameInputHandler(this.value)" onkeypress="lastnameInputHandler(this.value)">
                             <input type="email" name="mail" placeholder="Votre email" value="<?= $user['mail'] ?>">
-                            <a class="profile-edit-password" href="./../forgot_password.php">Modifier le mot de passe</a>
+                            <a class="profile-edit-password" href="./../recovery.php?mail=<?= $user['mail'] ?>&token=<?= $user['token'] ?>">Modifier le mot de passe</a>
                             <button type="submit" class="btn btn-blue-primary" role="btn-profile-save">Sauvegarder
                                 <svg class="btn-arrow" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
                                     <g fill-rule="evenodd">
@@ -66,46 +67,29 @@ if (isLogged()) {
                         </form>
                     </div>
                 </div>
+                <select id="logs-order" class="btn">
+                    <option value="id-increase">id: par ordre croissant</option>
+                    <option value="id-decrease">id: par ordre décroissant</option>
+                    <option value="date-increase">date: plus récent au plus ancien</option>
+                    <option value="date-decrease">date: plus ancien au plus récent</option>
+                    <option value="ttl-increase">ttl: par ordre croissant</option>
+                    <option value="ttl-decrease">ttl: par ordre décroissant</option>
+                </select>
                 <div class="cards-item cards-logs">
                     <table id="table-logs">
-                        <tr>
-                            <th>#</th>
-                            <th>user mail</th>
-                            <th>date</th>
-                            <th>version</th>
-                            <th colspan="2">header</th>
-                            <th>service</th>
-                            <th>identification</th>
-                            <th>flags code</th>
-                            <th>ttl</th>
-                            <th colspan="5">protocol</th>
-                            <th colspan="2">ip</th>
-                        </tr>
-                        <tr>
-                            <th colspan="4"></th>
-                            <th>length</th>
-                            <th>checksum</th>
-                            <th colspan="4"></th>
-                            <th>name</th>
-                            <th colspan="2">checksum</th>
-                            <th colspan="2">ports</th>
-                            <th>from</th>
-                            <th>dest</th>
-                        </tr>
-                        <tr>
-                            <th colspan="11"></th>
-                            <th>code</th>
-                            <th>status</th>
-                            <th>from</th>
-                            <th>dest</th>
-                            <th colspan="2"></th>
-                        </tr>
+                        <tbody></tbody>
                     </table>
                 </div>
             </div>
         </div>
     </section>
+    <div class="errors-wrapper">
+        <div class="container">
+            <div class="errors-container"></div>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="./../assets/js/dashboard.js"></script>
 </body>
