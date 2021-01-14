@@ -108,8 +108,17 @@ function showJson($data)
  */
 function isLogged()
 {
-    if (!empty($_SESSION['netron']['user'])) return true;
-    return false;
+    $result = true;
+    if (empty($_SESSION['netron']['user']) || $_SESSION['netron']['user'] == '') {
+        $result = false;
+    } else {
+        foreach ($_SESSION['netron']['user'] as $key => $value) {
+            if (!isset($key) && !isset($value)) {
+                $result = false;
+            }
+        }
+    }
+    return $result;
 }
 
 /**
