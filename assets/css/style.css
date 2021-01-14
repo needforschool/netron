@@ -779,7 +779,7 @@ a:hover {
 .section-padding .container-lg .swiper-container2 .swiper-wrapper .swiper-slide {
     background-position: center;
     background-size: cover;
-    width: 200px;
+    width: 210px;
     height: 400px;
 }
 
@@ -1088,15 +1088,10 @@ a:hover {
     }
     #about .container-lg h1.common-pagetitle.title {
         font-size: 30px;
-        /* margin-top: 50px; */
-        /* line-height: 1.5; */
-        /* letter-spacing: .8px; */
     }
     #about .container-lg p.common-introtext {
         font-size: 18px;
         margin: 40px auto 25px auto;
-        /* line-height: 1.5; */
-        /* letter-spacing: .8px; */
         width: 80%;
         text-align: justify;
     }

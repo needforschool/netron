@@ -51,7 +51,7 @@ include('./src/template/header.php');
     <div class="background-blue-primary"></div>
     <div class="preview-wrapper container">
         <div class="preview-text">
-            <h3 class="preview-text-tag">Conçue pour vous</h1>
+                <h3 class="preview-text-tag">Conçue pour vous</h3>
                 <h1 class="preview-text-title">L'une des interfaces les plus simple rapide et efficace de son
                     domaine</h1>
                 <p class="preview-text-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium ex
@@ -73,15 +73,11 @@ include('./src/template/header.php');
         <div class="preview-slider">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide" style="background-image:url(https://picsum.photos/id/232/1920/1080)">
+                    <div class="swiper-slide" style="background-image:url(assets/img/home-graf.png)">
                     </div>
-                    <div class="swiper-slide" style="background-image:url(https://picsum.photos/id/236/1920/1080)">
+                    <div class="swiper-slide" style="background-image:url(assets/img/home-account-user.png)">
                     </div>
-                    <div class="swiper-slide" style="background-image:url(https://picsum.photos/id/235/1920/1080)">
-                    </div>
-                    <div class="swiper-slide" style="background-image:url(https://picsum.photos/id/234/1920/1080)">
-                    </div>
-                    <div class="swiper-slide" style="background-image:url(https://picsum.photos/id/233/1920/1080)">
+                    <div class="swiper-slide" style="background-image:url(assets/img/home-tram.png">
                     </div>
                 </div>
                 <!-- Add Pagination -->
