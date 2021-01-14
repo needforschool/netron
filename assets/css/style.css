@@ -242,7 +242,7 @@ a:hover {
     top: -340px;
     bottom: 0;
     position: absolute;
-    background: radial-gradient( #ffcb57 23%, rgba(255, 203, 87, 0) 67% 100%) 385px -24px, radial-gradient( #ff333d 0, rgba(255, 51, 61, 0) 60% 100%) -940px 290px, radial-gradient(#90e0ff 10%, rgb(144, 224, 255, 0) 60% 100%) -120px 250px, radial-gradient(#ff333d 40%, rgba(255, 51, 61, 0) 57% 100%) 495px -44px, radial-gradient(#a960ee 30%, rgb(169, 96, 238, 0) 67% 100%) 122px -120px, radial-gradient(#a960ee 10%, rgb(169, 96, 238, 0) 60% 100%) -420px 120px, radial-gradient(#90e0ff 15%, rgb(144, 224, 255, 0) 50% 100%) -620px 0, radial-gradient(#90e0ff 25%, rgb(144, 224, 255, 0) 50% 100%) 520px -250px, #a960ee;
+    background: radial-gradient(#ffcb57 23%, rgba(255, 203, 87, 0) 67% 100%) 385px -24px, radial-gradient(#ff333d 0, rgba(255, 51, 61, 0) 60% 100%) -940px 290px, radial-gradient(#90e0ff 10%, rgb(144, 224, 255, 0) 60% 100%) -120px 250px, radial-gradient(#ff333d 40%, rgba(255, 51, 61, 0) 57% 100%) 495px -44px, radial-gradient(#a960ee 30%, rgb(169, 96, 238, 0) 67% 100%) 122px -120px, radial-gradient(#a960ee 10%, rgb(169, 96, 238, 0) 60% 100%) -420px 120px, radial-gradient(#90e0ff 15%, rgb(144, 224, 255, 0) 50% 100%) -620px 0, radial-gradient(#90e0ff 25%, rgb(144, 224, 255, 0) 50% 100%) 520px -250px, #a960ee;
     background-size: 1800% 1800%;
     -webkit-animation: rainbow 18s ease infinite;
     -z-animation: rainbow 18s ease infinite;
@@ -663,15 +663,7 @@ a:hover {
     width: 100%;
 }
 
-/* #contact .contact-container .form-contact .inputs-container input:first-child {
-    margin-left: 0;
-
-}
-#contact .contact-container .form-contact .inputs-container input:last-child {
-    margin-right: 0;
-} */
-
-#contact .contact-container .form-contact .inputs-container input, #contact .contact-container .form-contact textarea {
+#contact .contact-container .form-contact .inputs-container input, #contact .contact-container .form-contact textarea, #forgot_password .forgot-container .form-forgot input, #recovery .recovery-container .form-recovery input {
     flex: 1;
     margin: 10px;
     border: none;
@@ -794,16 +786,48 @@ a:hover {
 /* forgot password */
 
 #forgot_password {
-    margin: 100px;
+    margin: 100px 0;
 }
 
-#forgot_password form {
+#forgot_password .forgot-container {
+    text-align: center;
+}
+
+#forgot_password .forgot-container .form-forgot {
     display: flex;
-    align-items: center;
+    width: 100%;
     flex-direction: column;
+    align-items: center;
+    margin: auto;
 }
 
-#forgot_password {}
+#forgot_password .forgot-container .form-forgot input {
+    width: 35%;
+    margin-bottom: 20px;
+}
+
+/* Recovery */
+
+#recovery {
+    margin: 100px 0;
+}
+
+#recovery .recovery-container {
+    text-align: center;
+}
+
+#recovery .recovery-container .form-recovery {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}
+
+#recovery .recovery-container .form-recovery input {
+    width: 35%;
+    margin-bottom: 20px;
+}
 
 /* legal */
 
@@ -954,26 +978,6 @@ a:hover {
         flex-direction: column;
         align-items: center;
     }
-    #about .container-lg p.common-introtext {
-        font-size: 18px;
-        margin: 40px auto 5px auto;
-        /* line-height: 1.5; */
-        /* letter-spacing: .8px; */
-        width: 80%;
-    }
-    #about .team .card h2 {
-        text-align: center;
-        margin: 30px 0 0 0;
-        font-size: 1.6rem;
-    }
-    #about .team .card h4 {
-        text-align: center;
-        margin: 10px 0 0 0;
-        font-size: 1.2rem;
-    }
-    #about .team .card p {
-        line-height: 1.4;
-    }
 }
 
 @media only screen and (max-width: 880px) {
@@ -1108,6 +1112,12 @@ a:hover {
         text-align: justify;
         padding: 10px;
         line-height: 1.4;
+    }
+    #forgot_password .forgot-container .form-forgot input {
+        width: 70%;
+    }
+    #recovery .recovery-container .form-recovery input {
+        width: 70%;
     }
 }
 
