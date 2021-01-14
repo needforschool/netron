@@ -73,7 +73,7 @@ include('./src/template/header.php');
         <div class="preview-slider">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide" style="background-image:url(assets/img/home-graf.png)">
+                    <div class="swiper-slide" style="background-image:url(assets/img/home-tree.png)">
                     </div>
                     <div class="swiper-slide" style="background-image:url(assets/img/home-account-user.png)">
                     </div>
