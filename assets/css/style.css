@@ -242,7 +242,7 @@ a:hover {
     top: -340px;
     bottom: 0;
     position: absolute;
-    background: radial-gradient( #ffcb57 23%, rgba(255, 203, 87, 0) 67% 100%) 385px -24px, radial-gradient( #ff333d 0, rgba(255,51,61,0) 60% 100%) -940px 290px, radial-gradient(#90e0ff 10%, rgb(144,224,255,0) 60% 100%) -120px 250px, radial-gradient(#ff333d 40%, rgba(255,51,61,0) 57% 100%) 495px -44px, radial-gradient(#a960ee 30%, rgb(169,96,238,0) 67% 100%) 122px -120px, radial-gradient(#a960ee 10%, rgb(169,96,238,0) 60% 100%) -420px 120px, radial-gradient(#90e0ff 15%, rgb(144,224,255,0) 50% 100%) -620px 0, radial-gradient(#90e0ff 25%, rgb(144,224,255,0) 50% 100%) 520px -250px, #a960ee;
+    background: radial-gradient( #ffcb57 23%, rgba(255, 203, 87, 0) 67% 100%) 385px -24px, radial-gradient( #ff333d 0, rgba(255, 51, 61, 0) 60% 100%) -940px 290px, radial-gradient(#90e0ff 10%, rgb(144, 224, 255, 0) 60% 100%) -120px 250px, radial-gradient(#ff333d 40%, rgba(255, 51, 61, 0) 57% 100%) 495px -44px, radial-gradient(#a960ee 30%, rgb(169, 96, 238, 0) 67% 100%) 122px -120px, radial-gradient(#a960ee 10%, rgb(169, 96, 238, 0) 60% 100%) -420px 120px, radial-gradient(#90e0ff 15%, rgb(144, 224, 255, 0) 50% 100%) -620px 0, radial-gradient(#90e0ff 25%, rgb(144, 224, 255, 0) 50% 100%) 520px -250px, #a960ee;
     background-size: 1800% 1800%;
     -webkit-animation: rainbow 18s ease infinite;
     -z-animation: rainbow 18s ease infinite;
@@ -566,6 +566,10 @@ a:hover {
     display: flex;
 }
 
+#preview .preview-wrapper video {
+    max-width: 100%;
+}
+
 #preview .preview-wrapper .preview-text {
     flex: 1;
 }
@@ -706,10 +710,6 @@ a:hover {
     text-align: center;
 }
 
-.overflow-hidden {
-    overflow: hidden;
-}
-
 .section-padding .container-lg {
     max-width: 1040px;
     margin: 0 auto;
@@ -722,7 +722,6 @@ a:hover {
     flex: 1;
 }
 
-
 .section-padding {
     display: flex;
     position: relative;
@@ -731,8 +730,8 @@ a:hover {
 }
 
 .section-padding .background_container {
-    transform: skewY(-8deg);
-    background-color:#eeeeee;
+    transform: skewY(-6deg);
+    background-color: #eeeeee;
     z-index: -2;
     height: 100%;
     width: 100%;
@@ -744,7 +743,7 @@ a:hover {
 }
 
 .section-padding .background_container2 {
-    background-color:#eeeeee;
+    background-color: #eeeeee;
     z-index: -2;
     height: 100%;
     width: 100%;
@@ -761,7 +760,6 @@ a:hover {
     line-height: 1.4;
     color: var(--blue-primary);
     margin: 0px 15px 15px;
-    
 }
 
 .section-padding .container-lg .txt-about .txt-medium {
@@ -771,6 +769,7 @@ a:hover {
     color: var(--blue-primary);
     margin: 0px 15px 15px;
 }
+
 .section-padding .container-lg .swiper-container2 {
     width: 100%;
     padding-top: 50px;
@@ -790,6 +789,7 @@ a:hover {
     background-size: cover;
     width: 200px;
     height: 400px;
+}
 
 /* forgot password */
 
@@ -975,11 +975,13 @@ a:hover {
         line-height: 1.4;
     }
 }
+
 @media only screen and (max-width: 880px) {
     .section-padding .container-lg {
         flex-direction: column;
     }
 }
+
 @media only screen and (max-width: 750px) {
     :root {
         --columnCountMax: 2;
@@ -1047,6 +1049,9 @@ a:hover {
     #preview .preview-wrapper .preview-text .preview-text-desc {
         text-align: justify;
         margin: 15px;
+    }
+    #preview .preview-wrapper video {
+        max-width: 90%;
     }
     #video-preview {
         margin-bottom: 0px;

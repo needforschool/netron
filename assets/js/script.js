@@ -38,9 +38,7 @@ const initSwiper = () => {
       disableOnInteraction: false,
     }
   });
-}
-
-  var swiper = new Swiper('.swiper-container2', {
+  new Swiper('.swiper-container2', {
     effect: 'coverflow',
     grabCursor: true,
     centeredSlides: true,
@@ -58,6 +56,7 @@ const initSwiper = () => {
       disableOnInteraction: false,
     }
   });
+}
 
 const initNavbarResponsive = () => {
   $('header .nav-burger').click(() => {
@@ -161,7 +160,6 @@ const initForm = (formClass, successHandler = () => { }) => {
     })
   });
 }
-
 
 const initError = (errors) => {
   const errorContainer = $('.errors-wrapper .errors-container');
