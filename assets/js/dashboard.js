@@ -119,7 +119,7 @@ const initRequest = (logsOrder) => {
                 });
             });
 
-            initChart('Nombre de trames par type de requête', '#chartAmountPerRequests', 'bar', ['Requètes'], chartAmountPerRequestsDatasets);
+            initChart('Nombre de trames par type de requête', '#chartAmountPerRequests', 'bar', [], chartAmountPerRequestsDatasets);
         }
     });
 }
