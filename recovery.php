@@ -22,9 +22,15 @@ include('./src/template/header.php');
 
 <section id="recovery">
     <div class="container">
+        <div class="recovery-container">
         <form class="form-recovery" action="./api/users/recovery.php" method="POST">
-            <input type="password" name="password" placeholder="Nouveau mot de passe">
-            <input type="password" name="password-confirm" placeholder="Confirmation du mot de passe">
+            <!-- <div class="inputs"> -->
+                
+                    <input type="password" name="password" placeholder="Nouveau mot de passe">
+                    <input type="password" name="password-confirm" placeholder="Confirmation du mot de passe">
+                
+            <!-- </div> -->
+            
             <button type="submit" name="submit" class="btn btn-blue-primary">Valider
                 <svg class="btn-arrow" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
                     <g fill-rule="evenodd">
@@ -34,6 +40,8 @@ include('./src/template/header.php');
                 </svg>
             </button>
         </form>
+        </div>
+        
     </div>
 </section>
 
