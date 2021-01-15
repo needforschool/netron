@@ -89,7 +89,7 @@ include('./src/template/header.php');
 </section>
 <section id="video-preview">
     <div class="video-wrapper container">
-        <video class="video-item" autoplay loop playinline muted>
+        <video class="video-item" autoplay playsinline muted loop>
             <source src="./assets/media/dashboard-preview-desktop.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
