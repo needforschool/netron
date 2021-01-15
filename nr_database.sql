@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 11 jan. 2021 à 09:15
+-- Généré le : ven. 15 jan. 2021 à 09:52
 -- Version du serveur :  10.4.14-MariaDB
 -- Version de PHP : 7.4.11
 
@@ -83,7 +83,8 @@ ALTER TABLE `nr_contact`
 -- Index pour la table `nr_logs`
 --
 ALTER TABLE `nr_logs`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `logs_users_id` (`user_id`);
 
 --
 -- Index pour la table `nr_users`
@@ -111,7 +112,17 @@ ALTER TABLE `nr_logs`
 -- AUTO_INCREMENT pour la table `nr_users`
 --
 ALTER TABLE `nr_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `nr_logs`
+--
+ALTER TABLE `nr_logs`
+  ADD CONSTRAINT `logs_users_id` FOREIGN KEY (`user_id`) REFERENCES `nr_users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
