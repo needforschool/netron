@@ -138,13 +138,10 @@ const initRequest = (logsOrder) => {
             chartAmountPerRequests = new Chart($('#chartAmountPerRequests'), {
                 type: 'bar',
                 data: {
-                    labels: ['trames'],
+                    labels: [''],
                     datasets: chartAmountPerRequestsDatasets
                 },
                 options: {
-                    legend: {
-                        display: false
-                    },
                     maintainAspectRatio: false,
                     scales: {
                         yAxes: [{
@@ -156,13 +153,6 @@ const initRequest = (logsOrder) => {
                     title: {
                         display: true,
                         text: 'Nombre de trames par type de requête'
-                    },
-                    tooltips: {
-                        callbacks: {
-                            label: (tooltipItem) => {
-                                return tooltipItem.yLabel;
-                            }
-                        }
                     }
                 }
             });
@@ -175,7 +165,7 @@ const initRequest = (logsOrder) => {
 
             protocols.forEach(obj => {
                 chartTTLPerRequestsLabels.push(obj.protocolName);
-                chartTTLPerRequestsData.push(obj.ttl);
+                chartTTLPerRequestsData.push(128 - obj.ttl / obj.amount );
                 chartTTLPerRequestsBackgroundColor.push('rgba(' + obj.color + ', .25)');
                 chartTTLPerRequestsBorderColor.push('rgba(' + obj.color + ', .75)');
             });
@@ -196,12 +186,12 @@ const initRequest = (logsOrder) => {
                     maintainAspectRatio: false,
                     title: {
                         display: true,
-                        text: 'Nombre de TTL par type de requête'
+                        text: 'Nombre moyen de TTL perdu par type de requête'
                     }
                 }
             });
 
-            // chartTTLPerRequests
+            // chartTimemoutPerRequests
             let chartTimeoutPerRequestsLabels = [];
             let chartTimeoutPerRequestsData = [];
             let chartTimeoutPerRequestsBackgroundColor = [];
@@ -230,7 +220,7 @@ const initRequest = (logsOrder) => {
                     maintainAspectRatio: false,
                     title: {
                         display: true,
-                        text: 'Nombre de Timeout par type de requête'
+                        text: 'Nombre d\'échec par type de requête'
                     }
                 }
             });
@@ -360,32 +350,6 @@ const initError = (errors) => {
         </div>
       `)
     });
-}
-
-const initChart = (title, selector, type, labels, datasets) => {
-    var chart = new Chart($(selector), {
-        type: type,
-        data: {
-            labels: labels,
-            datasets: datasets
-        },
-        options: {
-            maintainAspectRatio: false,
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            },
-            title: {
-                display: true,
-                text: title
-            },
-            responsive: true
-        }
-    });
-    return chart;
 }
 
 const initLogoutBtn = () => {
