@@ -10,13 +10,9 @@ const init = () => {
   initNavbarResponsive();
   initModal();
   initLocalization();
-  initForm('.form-contact', (response) => {
-    if (response.success) window.location.href = './';
-  });
+  initForm('.form-contact');
   initForm('.form-forgot');
-  initForm('.form-recovery', (response) => {
-    if (response.success) window.location.href = './';
-  });
+  initForm('.form-recovery');
   initForm('.form-login', (response) => {
     if (response.success) loginSuccessHandler();
     if (response.errors) loginErrorHandler('.form-login', response.errors);
@@ -158,10 +154,8 @@ const initForm = (formClass, successHandler = () => { }) => {
         successHandler(response);
         if (response.success) {
           if (!$('.btn[type="submit"]').hasClass('btn-success')) {
-            $('.btn[type="submit"]').toggleClass('btn-success');
-            setTimeout(() => {
-              $('.btn[type="submit"]').toggleClass('btn-success');
-            }, 2000)
+            $('.btn[type="submit"]').toggleClass('btn-success').css('cursor', 'not-allowed');
+
           }
         } else {
           if (!$('.btn[type="submit"]').hasClass('btn-error')) {

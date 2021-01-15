@@ -48,7 +48,7 @@ include('./src/template/header.php');
             <p class="preview-text-desc">Notre Dashboard simple d'utilisation et de compréhension permet le suivi de trame facilement et rapidement, grace notamment aux tries possibles des trames ainsi que des statistiques compréhensibles par tous.</p>
         </div>
         <div class="preview-slider">
-            <video class="video-item" autoplay loop playinline muted>
+            <video class="video-item" autoplay playsinline muted loop>
                 <source src="./assets/media/dashboard-preview-desktop.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>

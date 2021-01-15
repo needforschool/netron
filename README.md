@@ -46,7 +46,7 @@ Notes:
 | updated_at 	| datetime             	|
 | role       	| varchar(20)         	|
 
-**Logs** *(Incomplet)*
+**Logs**
 | nr_logs   	|                      	|
 |------------	|----------------------	|
 | id         	| int(11)              	|
